@@ -1,0 +1,352 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html><head>
+   <meta content="Clemens Lode" name="Author">
+   <meta content="books,java,linux,starcraft,warcraft,calculator,education,science projects,hill climbing,neural network,artificial life,artificial intelligence,optimization,tool,tools,learn,strategy,build order,tutorial" name="keywords"><title>Artificial Intelligence and Optimization Tutorial</title>
+   
+<link href="../includes/claw.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="../includes/menu.js" language="JavaScript"></script></head>
+
+<body>
+<table width="100%" cellpadding="2" border="0">
+<tbody><tr>
+<td width="165" valign="top" align="left">
+<iframe src="../includes/menu.htm" frameborder="0" scrolling="no" height="800" width="165">
+</iframe>
+      <br>
+</td>
+<td valign="top" align="left"><font face="Arial,Helvetica"><font size="+3">Artificial Intelligence</font>
+<br><img alt="Line" width="504" height="10" src="../images/line.gif">
+<br>
+<img alt="Hint" src="../images/hint.gif"> (To some key words there is additional help, move your pointer on them to get enlightened :-))<br>
+<br>
+
+
+<font size="+2"><b>AI Part I<br></b></font>
+      <br>
+</font><font face="Arial,Helvetica"><img style="width: 504px; height: 10px;" alt="" src="file:///home/clawg/workhp/images/line.gif"></font><br>
+      <font face="Arial,Helvetica"><br>
+<font face="Times New Roman">
+</font></font><div class="tooltip" id="search">
+<font face="Arial,Helvetica"><font face="Times New Roman"><b>Search Space<img alt="!" src="../images/exclamation.gif"></b><br>
+<br>	
+You are standing on a large field and throw a ball in a random direction.
+The position of the ball is the solution, the field is the search space.
+<br>
+<br>
+PS: You will find here a chapter solely about search space soon.<br> 
+</font>
+</font></div>
+
+<div class="tooltip" id="buildo">
+<font face="Arial,Helvetica"><b>Build Orders<img alt="!" src="../images/exclamation.gif"></b><br>
+<br>
+A Build Order is a list of buildings and units you will build at a certain time.<br>Here
+is much room to optimize as in most cases you have to synchronize your
+different units to reach a certain goal. It is wasted time if your
+workers have to wait for new materials while its wasted cargo space if
+your materials are not used immediately by a worker at a building site.<br>
+</font></div>
+
+<font face="Arial,Helvetica"><b>A little calculation concerning <a onmouseout="hideInfo('buildo');" onmouseover="showInfo('buildo');"><i>Build Orders</i></a> and their <a onmouseout="hideInfo('search');" onmouseover="showInfo('search');"><i>search space</i></a>:</b>
+<br>
+<br>
+</font><div class="tooltip" id="computers">
+<font face="Arial,Helvetica"><b>Computers</b><br>
+<br>
+"Have you people ever seen computers before? What they do here they
+press the letters and that manipulates the screen here and then we have
+fun with it."<br>
+<i>Nick Burns</i>
+</font></div>
+<div class="tooltip" id="brute">
+<font face="Arial,Helvetica"><b>Brute Force method</b><br>
+<br>
+With a brute force method you just test every single item of the search space whether it is the solution or not.<br>
+As the name says you need some computer power but your brain may take a vacation :-)<br>
+</font></div>
+<font face="Arial,Helvetica"><a onmouseout="hideInfo('computers');" onmouseover="showInfo('computers');"><i>Computers</i></a> are stupid. Let's think of the simplest way to create a perfect build order by using a <a onmouseout="hideInfo('brute');" onmouseover="showInfo('brute');"><i>brute force method</i></a>:x
+:<br>
+First some analysis of the problem:<br>
+There are about 60 items (units/buildings/upgrades) to build in Starcraft per race.<br>
+There are no turns as the game is real-time. But it seems enough when
+the computer looks every second what to do because there is not much
+change during that second. This would be a total stupid abstraction of
+the problem in a 3D Shooter of course :-)<br>
+</font><div class="tooltip" id="wall-in">
+<font face="Arial,Helvetica"><b>Wall-in</b><br>
+<br>
+A building in Starcraft has 4 qualities: it can produce units, needs
+money to build, can withstand a certain amount of damage and ... needs
+space.
+While it is clear that you use the first three qualities in a game,
+using the last is a trick called 'wall-in'.<br>
+You close certain entries with neutral buildings and use this new
+terrain 'feature' as your advantage. (e.g. closing your entrance to
+hinder enemy melee units to enter your base while your own tanks are
+taking action)<br>
+</font></div>
+<font face="Arial,Helvetica">You are without contact of your enemy in
+the best case for say (very) roughly 10 minutes (on an air map, or you
+could try to build a <a onmouseout="hideInfo('wall-in');" onmouseover="showInfo('wall-in');"><i>wall-in</i></a>, use your workers as defense, call your enemy a rushing idiot etc. <img alt="wink" src="../images/grnwink.gif">).<br>
+<br>
+All in all, you have to choose between 60 possibilities in each of the 600 seconds.<br>
+That results in 60^600 = (roughly <img alt="Tongue" src="../images/grntongue.gif">) 100^500 = a ten with 1000 x "0"s different build orders.<br>
+Ok, phew... What magic tricks will this guy show us now?<br>
+<br>
+First some implementation stuff. How long would a computer need to calculate that?<br>
+</font><div class="tooltip" id="tick">
+<font face="Arial,Helvetica"><b>A tick<img alt="!" src="../images/exclamation.gif"></b><br>
+<br>
+Tick? What's that?<br>
+Well actually it's a "processor cycle" but that's just another word...<br>
+One 'tick' is one calculation in the CPU, like "add one" or "set to
+zero". There are also some more powerful orders a CPU can execute, like
+writing to or reading from the RAM, doing multiplication etc. Those
+operations often need some more 'ticks' to execute.<br>
+The exact number depends on the processor architecture (i386, i486,
+i586 in case of an Intel Machine), while the number of 'ticks' a CPU
+can execute per second is the Hz (like 2 GigaHz).
+<br>
+</font></div>
+
+<font face="Arial,Helvetica">Let's say we could optimize the program so that it only need one <a onmouseout="hideInfo('tick');" onmouseover="showInfo('tick');"><i>tick</i></a> we can calculate the time of each build order in one tick.<br> 
+(well I would say about 10000 ticks per build order, but that really does not matter <img alt="Tongue" src="../images/grntongue.gif">) <br>
+</font><div class="tooltip" id="someyears">
+<font face="Arial,Helvetica"><font size="-3">
+10000000000000000000000000000000000
+00000000000000000000000000000000000
+00000000000000000000000000000000000
+00000000000000000000000000000000000
+00000000000000000000000000000000000
+00000000000000000000000000000000000
+00000000000000000000000000000000000
+00000000000000000000000000000000000
+00000000000000000000000000000000000
+00000000000000000000000000000000000
+00000000000000000000000000000000000
+00000000000000000000000000000000000
+00000000000000000000000000000000000
+00000000000000000000000000000000000
+00000000000000000000000000000000000
+00000000000000000000000000000000000
+00000000000000000000000000000000000
+00000000000000000000000000000000000
+00000000000000000000000000000000000
+00000000000000000000000000000000000
+00000000000000000000000000000000000
+00000000000000000000000000000000000
+00000000000000000000000000000000000
+00000000000000000000000000000000000
+00000000000000000000000000000000000
+00000000000000000000000000000000000
+00000000000000000000000000000000000
+0000000000000000000000000000 YEARS. <br></font>Drop or add some zeros :)
+</font></div>
+<font face="Arial,Helvetica">A modern computer is able to calculate about 2 GhZ = 2.000.000.000 ticks/second...<br>
+Well not fast enough <img alt="Grin" src="../images/grngrin.gif"><br>
+That would <a onmouseout="hideInfo('someyears');" onmouseover="showInfo('someyears');"><i>some</i></a> years to calculate <img alt="wink" src="../images/grnwink.gif"><br>Waiting
+for a faster computer chip instead of letting the simulation run would
+even save some time in this case (remember, the speed of CPUs double
+every two years).<br>
+Ok, ok, the search space (the "60^600") is too big.<br>
+<br>
+<img alt="DrLight" src="../images/DrLight.gif">Let's try to analyze the problem:<br>   
+<br>
+- The computer should not try to 'optimize' the build order with
+useless items like Battle Cruisers if you want the fastest way to build
+medics or space marines.<br>
+In normal (10 minute-) games there are not more than 10 different units
+(remember in this case a unit could also be an upgrade or something) in
+the build order. <br><br>
+10^600 remaining ...
+<br>
+- Checking whether the computer should build another unit is probably
+only useful when something significant changes in the game. For example
+your workers brought another 50 minerals in, your production site or
+your upgrade is completed. Consequently the computer will not try to
+build every second a new unit but wait until the prerequisites are
+fulfilled.<br>
+<br>
+10^50 remaining ...
+<br> Looks much better now than the 1000 "0"s we got before but the
+search space is still too big... (remember, 9 Zeros does a GhZ
+processor!)<br>
+<br>
+At this point we can neither easily reduce the steps any further nor the possibilites per step...<br>
+<br>
+Well... How does that Starcraft Calculator function???<br>
+<br>
+Yes, it has an internet connection to me and I am typing the build orders <img alt="ugly" src="../images/ugly.gif"><br>
+</font><div class="tooltip" id="preprog">
+<font face="Arial,Helvetica"><b>Preprogrammed computer intelligence</b><br>
+<br>
+Oooh... Computers are stupid. And with preprogrammed computer intelligence you will realize that pretty fast :)<br>
+Well... imagine that you have to make a plan for every minute of a
+whole day (or week or whatever). You see the point? Everything can
+happen. The only reason why a computer still "seems" to be intelligent
+is that these programs often work in very specialized areas and are
+incapable to do other things.<br>
+An automat where you can buy drinks is preprogrammed...<br>
+</font></div><font face="Arial,Helvetica">    
+ 
+<a onmouseout="hideInfo('preprog');" onmouseover="showInfo('preprog');"><i>Preprogrammed</i></a> build orders?<br>
+No, that would need a very huge database... <br>
+<img alt="idea" src="../images/idea.gif"> 
+Genetic Algorithms is the answer.<br>
+Well, I'll talk about that in "AI Part II" :)<br>
+<br>
+<br>
+
+
+
+<font size="+2"><b>AI Part II</b></font><br>
+<br>
+<img alt="line" width="504" height="10" src="../images/line.gif"><br>
+
+</font><div class="tooltip" id="genetic">
+<font face="Arial,Helvetica"><b>Genetics</b><br>
+<br>
+Every lifeform on earth has a special code in each cell. It's like a
+computer program but each part of the program is heavily connected to
+the others. Imagine it like a huge parallel computer with many
+interconnections between the programs/computer towers.
+</font></div><font face="Arial,Helvetica"> 
+
+</font><div class="tooltip" id="fitness">
+<font face="Arial,Helvetica"><b>Fitness</b><br>
+<br>
+The "fitness" of a program is a measurement how well a computer program satisfy a certain problem.
+</font></div>
+
+<font face="Arial,Helvetica"><a onmouseout="hideInfo('genetic');" onmouseover="showInfo('genetic')';"><i>Genetic</i></a> Algorithms? Hu? Do you create bacteria and viruses in a dark lab beneath the surface?<img alt="DrCossack" src="../images/DrCossack.gif"><br>
+
+
+The first version used these genetic algorithms.<br>
+At first a small overview:<br>
+<img alt="DrLight" src="../images/DrLight.gif">
+The program creates say 100 randomized build orders. After that it calculates the <a onmouseout="hideInfo('fitness');" onmouseover="showInfo('fitness');"><i>fitness</i></a>
+depending on the goals I set up. A 'goal' is in this case for example
+"Build 10 SpaceMarines and upgrade their weapons and do that as fast as
+possible".<br>
+Afterwards the worst BOs are 'selected' and deleted while the best ones
+may ... well 'digitally copulate' with others to merge their genetic
+information, i.e. their build order.<br>
+</font><div class="tooltip" id="mutation">
+<font face="Arial,Helvetica"><b>Mutations</b>
+<br><br>
+A mutation is a small change in the genetic code. In genetic algorithms
+it is used to keep up a certain level of diversity between the
+different programs.<br>
+The affected parts where the mutation take place could be just changed, replace, cut out or new (random) parts are created.<br>  
+</font></div>
+<div class="tooltip" id="gen-pool">
+<font face="Arial,Helvetica"><b>Gen-pool</b>
+<br><br>
+A gen-pool is the sum of all genes in a population. The more diversity
+there is the better can the population adapt to changing environment.<br>
+</font></div><font face="Arial,Helvetica">  
+    
+All in all, over time, the best build order will spread throughout the whole <a onmouseout="hideInfo('gen-pool');" onmouseover="showInfo('gen-pool');"><i>gen-pool</i></a> until everyone got the 'good' genes. Due <a onmouseout="hideInfo('mutation');" onmouseover="showInfo('mutation');"><i>mutations</i></a>
+the build orders always change a bit. Either they die out (the mutation
+was lethal) or that change in their genetic code improves their
+fitness. Again their (now better) genetic information spread through
+the gen-pool etc. etc.<br>
+<br>
+Phew... well that was much... that covers about one year biology in school... <img alt="Book" src="../images/leseratte.gif">
+<br>
+If you are not quite familiar with all these things I suggest to get
+you a good book about biology. "Well" you might say "I don't like those
+school books...".
+Then take a look at the <a href="books.htm">'books'</a> section.
+(Except one or two) there are no 'one-fact-after-the-other' books only
+good readable ones that are fun to read if you are interested in
+biology.<br>
+Believe me. It's worth the time.<br>       
+<br>
+Oook.... back to work <img alt="wave" src="../images/wave.gif">
+<br> 
+<br>
+Such an algorithm has of course some problems.<br>
+- While it is clear when a 'brute-force' algorithm is completely
+executed you do not know when a genetic algorithm is ready i.e. when
+you have found the best solution.
+- That merging is problematic in the case of build orders as with
+crossing over the evolution tends to connect important parts of the
+build order together.<br>
+Hu?<br>
+Well, take a cord and cut it at random spots. You will probably notice that
+the longer the distance between to points on that cord is the more
+probable they are cut in two different pieces... Consequently any build
+orders where two important 'orders' are together pretty close at one
+place (also called "locus" which is latin for "place") have a higher
+probability to give BOTH 'orders' together on one string to their
+descendants.<br>
+<br>
+Why is this important?<BR>
+Without this mechanism (which occurs automatically) it would be impossible to bind multiple genes together. That would lead to a pretty disordered gene string where the information of the eye color sits right next to critical informations about a heart-cell.<BR>
+Instead (well at least in general, there are always exceptions where other factors have more influence) genes that needed together are also in the same place.<BR>
+In Starcraft this will result under certain circumstances in grouping marine-genes near barracks-genes.<BR>
+<br>
+<br> 
+Ok, the next step I took, was to fine tune everything, added additional mutation factors etc. but to make it short:
+The ability of the program to create build orders was really weak.<br>
+Yeah, I remember how happy I was when it completed the goal to build 1 additional worker <img alt="grin" src="../images/grngrin.gif">.<br>
+Well, at that point I started to really hate the program, I wanted to give up.<br>
+But hey, I bought a book (actually 2 years ago, I just rediscovered it on my desk <img alt="wink" src="../images/grnwink.gif">).<br>
+It is kind of a weird book about applying Artificial Neural Networks (ANNs) in industry applications...<br>
+It concentrates more on the project management than on the technical details...<br>Only
+some poor examples were put in there. All in all, the authors really
+want me to study computer science before they surprise me with their
+secret voodoo magic.<br>
+Back to the roots:<br>
+I did not really understand how ANNs learn at first place.<br>
+I could not imagine how a computer program can learn from some examples.<br>   
+<br>
+But let's examine first the difficulty of the task to make good (i.e.
+it fulfills the goals in a small amount of time) build orders.<br>  
+It is NOT easy.<br>
+If you just watch yourself in a game, you often have 2-3 basic rules in
+mind like "Always build workers", "Get some units at the beginning",
+"Make an <a onmouseout="hideInfo('expansion');" onmouseover="showInfo('expansion');"><i>expansion</i></a> if you have enough minerals and units", etc. etc.<br>
+But these are no build orders, these are just rules.<br>
+To make it clear: Build Orders are 'Information' while rules are 'Knowledge'.<br>
+You will not win a single game with build orders alone, you need
+knowledge to fine tune them and apply them on different maps etc.<br>
+<br>
+So... how does 'learning' functions in general?<br>
+<img alt="DrLight" src="../images/DrLight.gif">
+You get something like a reward if one of your rules is working. You
+destroy some enemy units, you control certain parts of the map or you
+even win the game.<br>
+As we were newbies we all built not many workers. We used some kind of
+logic: "Workers cost money" and "I want more money", so we tried not to
+build too many of them.<br>
+</font><div class="tooltip" id="zealots">
+<font face="Arial,Helvetica"><b>Zealot</b>
+<br><br>
+A zealot is the basic fighting unit of the mighty Protoss.<br>
+</font></div>
+<font face="Arial,Helvetica">But trying someone else's strategy to always build workers we suddenly recognized that we have more <a onmouseout="hideInfo('zealot');" onmouseover="showInfo('zealot');"><i>Zealots</i></a>
+standing around than before! In addition, when we make an expansion, we
+can transfer some workers to the new base and can immediately start
+harvesting.<br>
+<img alt="hint" src="../images/hint.gif"> "Always build workers" is a good rule!<br>
+But back to the problem:<br>
+Let's assume you learn only build orders. You play them step for step and... loose :|<br>
+But what do we learn from this defeat? Not much. You can probably only notice that your build order is bad.<br>
+We can't optimize the build order, since we only know that it just did not function. We don't know exactly what part of the build order is wrong.<br>
+So, all in all, the ANN approach was doomed to failure from the beginning...<br>
+<br>
+Mmmh... this is the end of chapter II and there are many open questions... <br>
+Especially about that ANN thing, the 'evolution' concept and some more about Genetic programming.<br>
+I am also planning to open the source of the old starcraft calculator and write a documentation.<br> 
+Well... Part III is already in development, so be patient <img alt="wave" src="../images/wave.gif">
+<br>
+<br>
+<br>
+<br> 
+<iframe src="../includes/rights.htm" frameborder="0" scrolling="no" height="150" width="800">
+</iframe>
+</font></td>
+</tr>
+</tbody></table>
+</body></html>
