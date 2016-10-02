@@ -2,8 +2,8 @@
 <html>
 <head>
    <meta name="Author" content="Clemens Lode">
-   <meta name="keywords" content="books,java,linux,starcraft,warcraft,calculator,education,science projects,hill climbing,neural network,artificial life,artificial intelligence,optimization,tool,tools,learn,strategy,build order,tutorial">
-   <title>Artificial Intelligence and Optimization Tutorial</title>
+   <meta name="keywords" content="buecher,java,linux,starcraft,warcraft,calculator,bildung,wissenschaft,hill climbing,optimierung,neurales netzwerk,kuenstliche intelligenz,kuenstliches leben,lernen,strategie,build order,taktik,tutorial,einfuehrung,anfaenger">
+   <title>Einfuehrung in die Kuenstliche Intelligenz und Optimierung</title>
 <link rel="stylesheet" type="text/css" href="../includes/claw.css">
 <script language="JavaScript" src="../includes/menu.js" type="text/javascript"></script>
 </head>
@@ -11,13 +11,13 @@
 <table BORDER=0 CELLPADDING=2 WIDTH="100%" >
 <tr>
 <td ALIGN=LEFT VALIGN=TOP WIDTH=165>
-<IFRAME WIDTH=165 HEIGHT=800 SCROLLING=NO FRAMEBORDER=0 SRC="../includes/menu.htm">
+<IFRAME WIDTH=165 HEIGHT=800 SCROLLING=NO FRAMEBORDER=0 SRC="../includes/menud.htm">
 </IFRAME>
 </td>
-<td ALIGN=LEFT VALIGN=TOP><font face="Arial,Helvetica"><font size=+3>Artificial Intelligence</font>
+<td ALIGN=LEFT VALIGN=TOP><font face="Arial,Helvetica"><font size=+3>Kuenstliche Intelligenz</font>
 <br><img SRC="../images/line.gif" height=10 width=504 ALT="Line">
 <BR>
-<img SRC="../images/hint.gif" ALT="Hint"> (To some key words there is additional help, move your pointer on them to get enlightened :-))<BR>
+<img SRC="../images/hint.gif" ALT="Hint"> (Es gibt zu einigen Stichwoertern zusaetzliche Hilfe, einfach den Mauszeiger ueber das Wort bewegen :-))<BR>
 <BR>
 
 
@@ -25,39 +25,39 @@
 <BR>
 <font face="Times New Roman">
 <div id="search" class="tooltip">
-<B>Search Space<img src="../images/exclamation.gif" ALT="!"></B><BR>
+<B>Suchraum<img src="../images/exclamation.gif" ALT="!"></B><BR>
 <BR>	
-You are standing on a large field and throw a ball in a random direction.
-The position of the ball is the solution, the field is the search space.
+Man steht auf einem grossen Feld und wirft einen Ball in eine zufaellige Richtung.
+Die neue Position des Balls ist die Loesung, das Feld stellt den Suchraum dar. 
 <BR>
 <BR>
-PS: You will find here a chapter solely about search space soon.<BR> 
+PS: Ich bereite ein neues Kapitel alleine ueber den Suchraum vor. Ziemlich komplex...<BR>
 </font>
 </div>
 
 <div id="buildo" class="tooltip">
 <B>Build Orders<img src="../images/exclamation.gif" ALT="!"></B><BR>
 <BR>
-A Build Order is a list of buildings and units you will build at a certain time.<BR>Here is much room to optimize as in most cases you have to synchronize your different units to reach a certain goal. It is wasted time if your workers have to wait for new materials while its wasted cargo space if your materials are not used immediately by a worker at a building site.<BR>
+Der Begriff "Build Order" hat sich bei Strategiespielen eingebuergert und bedeutet in etwa Baureihenfolge. Die BO stellt eine Liste von Gebaeuden/Einheiten dar, die man zu einer bestimmten Zeit im Spiel baut.
+Das bietet oft viel Raum fuer Optimierungen da man in den meisten Faellen die einzelnen Produktionsketten miteinander verbunden sind. Es ist einfach verschwendete Zeit, wenn ein Arbeiter auf Rohstoffe fuer ein neues Gebaeude warten muss, waehrend es verschwendeter Platz ist, wenn die Rohstoffe nicht ausgeliefert werden, also nicht sofort an einer Baustelle verwendet werden.<BR>
 </div>
 
-<B>A little calculation concerning <a onMouseOver="showInfo('buildo');" onMouseOut="hideInfo('buildo');"><i>Build Orders</i></a> and their <a onMouseOver="showInfo('search');" onMouseOut="hideInfo('search');"><i>search space</i></a>:</B>
+<B>Eine kleine Berechnung <a onMouseOver="showInfo('buildo');" onMouseOut="hideInfo('buildo');"><i>"Build Orders"</i></a> und ihren <a onMouseOver="showInfo('search');" onMouseOut="hideInfo('search');"><i>Suchraum</i></a> betreffend:</B>
 <BR>
 <BR>
 <div id="computers" class="tooltip">
-<B>Computers</B><BR>
+<B>Computer</B><BR>
 <BR>
 "Have you people ever seen computers before? What they do here they press the letters and that manipulates the screen here and then we have fun with it."<BR>
 <i>Nick Burns</i>
 </div>
 <div id="brute" class="tooltip">
-<B>Brute Force method</B><BR>
+<B>"Brute Force" Methode</B><BR>
 <BR>
-With a brute force method you just test every single item of the search space whether it is the solution or not.<BR>
-As the name says you need some computer power but your brain may take a vacation :-)<BR>
+Mit einer "Brute Force" (Rohe Gewalt) Methode sucht man einfach jedes Stueck des Suchraums ab.<BR>
+Wie der Name verraet benoetigt man hierbei oft eine Menge Rechenleistung des Computers, waehrend man selbst beim Denken eine Pause einlegen kann :).  
 </div>
-<a onMouseOver="showInfo('computers');" onMouseOut="hideInfo('computers');"><i>Computers</i></a> are stupid. Let's think of the simplest way to create a perfect build order by using a <a onMouseOver="showInfo('brute');" onMouseOut="hideInfo('brute');"><i>brute force method</i></a>:x
-:<BR>
+<a onMouseOver="showInfo('computers');" onMouseOut="hideInfo('computers');"><i>Computer</i></a> sind dumm. Also denken wir zuerst an die einfachste Methode um eine perfekte Build Order zu errechnen und zwar mit Hilfe der sogenannten <a onMouseOver="showInfo('brute');" onMouseOut="hideInfo('brute');"><i>Brute Force Methode</i></a>::x<BR>
 First some analysis of the problem:<BR>
 There are about 60 items (units/buildings/upgrades) to build in Starcraft per race.<BR>
 There are no turns as the game is real-time. But it seems enough when the computer looks every second what to do because there is not much change during that second. This would be a total stupid abstraction of the problem in a 3D Shooter of course :-)<BR>
