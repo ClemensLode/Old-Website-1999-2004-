@@ -1,11 +1,11 @@
-body			{ font-family: arial,helvetica,sans-serif; background-color: #fafafa; color: #000000; font-size: 13pt; }
-p				{ font-family: arial,helvetica,sans-serif; color: #f5e9b7; font-size: 10pt; }
+body			{ font-family: times new roman,sans-serif; background-color: #fafafa; color: #000000; font-size: 13pt; }
+; Nachschaun wegen Table eigenschaften
 span			{ font-family: arial,helvetica,sans-serif; color: #f5e9b7; font-size: 10pt; }
 pre				{ color: #da4b1e; font-size: 10pt; }
-blockquote		{ font-family: arial,helvetica,sans-serif; color: #f5e9b7; font-size: 10pt; }
+blockquote		{ font-family: times new roman,sans-serif; color: #000000; font-size: 10pt; }
 cite			{ font-family: arial,helvetica,sans-serif; color: #ffffff; font-weight: bold; font-style: normal; font-size: 10pt; }
 em				{ font-family: arial,helvetica,sans-serif; color: #ffffff; font-weight: bold; font-style: normal; font-size: 10pt; }
-b				{ font-family: arial,helvetica,sans-serif; color: #000000; font-weight: bold; font-style: normal; font-size: 12pt; }
+b				{ font-family: times,new roman,sans-serif; color: #000000; font-weight: bold; font-style: normal; font-size: 12pt; }
 b.normal		{ font-family: arial,helvetica,sans-serif; color: #da4b1e; font-weight: bold; font-style: normal; font-size: 8pt; letter-spacing: 2px; }
 b.gray			{ font-family: arial,helvetica,sans-serif; color: #ffffff; font-weight: bold; font-style: normal; font-size: 8pt; }
 small			{ font-family: arial,helvetica,sans-serif; color: #ffffff; font-size: 8pt; font-weight: normal; font-style: normal; }
@@ -28,9 +28,9 @@ a.link:visited 		{ font-family: arial,helvetica,sans-serif; color: #880000; }
 a.link:hover			{ font-family: arial,helvetica,sans-serif; color: #ff0000; }
 a.link:active 		{ font-family: arial,helvetica,sans-serif; color: #ffffff; }
 
-a:link		{ font-family: arial,helvetica,sans-serif; color: #000000; text-decoration: none }
+a:link		{ font-family: arial,helvetica,sans-serif; color: #440000; text-decoration: none }
 a:visited 		{ font-family: arial,helvetica,sans-serif; color: #000000; text-decoration: none }
-a:hover		{ font-family: arial,helvetica,sans-serif; color: #000000; text-decoration: none }
+a:hover		{ font-family: arial,helvetica,sans-serif; color: #aa0000; text-decoration: none }
 a:active 		{ font-family: arial,helvetica,sans-serif; color: #000000; text-decoration: none }
 
 a.tiny:link		{ font-family: arial,helvetica,sans-serif; color: #da4b1e; font-weight: bold; font-size: 8pt; }
