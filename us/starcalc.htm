@@ -1,0 +1,392 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+   <meta name="Author" content="Clemens Lode">
+   <meta name="keywords" content="clawsoftware, clemens lode, AMB, [AMB]Claw, homepage, update, personal homepages, clawghoul, claw software, computers, Klaue">
+   <meta name="description" content="StarCraft trainer, tools and music, Artificial Intelligence, Artificial Life and Optimization tutorials.">
+   <title>News from the Optimization frontier</title>
+
+   <link rel="stylesheet" type="text/css" href="../includes/claw.css">
+   <script Language="JavaScript" src="../includes/menu.js" type="text/javascript"></script>
+</head>
+<table BORDER=0 CELLPADDING=2 WIDTH="100%" >
+<tr>
+<td ALIGN=LEFT VALIGN=TOP WIDTH=165>
+<IFRAME WIDTH=165 HEIGHT=800 SCROLLING=NO FRAMEBORDER=0 SRC="../includes/menu.htm">
+</IFRAME>
+</td>
+<td ALIGN=LEFT VALIGN=TOP>
+<img src="../images/scclogo.jpg"><BR>
+<br><img SRC="../images/line.gif" height=10 width=504>
+<BR>
+<BR>
+<BR>
+<B>About the program itself:</B><BR>
+<BR>
+<div id="whatitdoes" class="tooltip">
+<B>What does this program?</B><BR><BR>
+The program <B>simulates an abstract StarCraft:Broodwar environment</B> and <B>calculates the time</B> a certain build order needs.<BR>
+By <B>comparing</B> different build orders, randomly changing them and taking the best build order for the next generation, the build order is improved step by step.<BR>
+StarCraft build orders fit perfectly for this algorithm called <B>'Hill-Climbing'</B>.<BR>
+</div>
+<a onMouseOver="showInfo('whatitdoes');" onMouseOut="hideInfo('whatitdoes');">What does this program?</a><BR>
+<div id="limits" class="tooltip">
+<B>Where are the limits, the drawbacks?</B><BR><BR>
+- It only calculates a <B>general</B> build order. <B>Depending</B> on the <B>map</B>, the <B>latency</B>, your <B>mousespeed</B> and many other small factors there might be a <B>better</B> build order.<BR>
+- Build orders are <B>limited to 100 orders.</B><BR>
+- The program is <B>based on one-second steps</B>. This might lead to some inaccurate calculation.<BR>
+- Some high-tech calculations still need <B>much time</B> to complete. This will probably get better with later versions as 1.02 is not much optimized.<BR>
+- In most cases the build orders <B>cannot be applied 1 : 1</B> in the game. You have to exercise them and adapt them to your needs.<BR>
+</div>
+<a onMouseOver="showInfo('limits');" onMouseOut="hideInfo('limits');">Where are the limits of the program, what are the drawbacks?</a><BR>
+<div id="use" class="tooltip">
+<B>Is it useful?</B><BR><BR>
+Hard question... You have to decide for yourself...<BR>
+I think that is certainly useful for newbies who want to improve their gaming.<BR>
+I look at the program as a well sorted collection of build orders but also as a sort of toy :)<BR>
+Well... you can play with it getting somehow the feeling of a discovery and try the new build orders in the game having fun surprising your enemies and learn new techniques.
+</div>
+<a onMouseOver="showInfo('use');" onMouseOut="hideInfo('use');">Is it useful?</a><BR>
+
+<div id="starcraft" class="tooltip">
+<B>Why StarCraft?</B><BR><BR>
+There are some points which makes StarCraft an ideal case for this type of optimization program:<BR>
+- Linear BO<BR>
+- BOs are not trivial<BR>
+- Neither too complex nor too simple game<BR>
+- Some time before first enemy contact<BR>
+- relativ complex Economy<BR>
+The last point roughly describes the problem at any time in a BO: "Should I build additional workers or spend the money on new buildings?"<BR>
+Besides the fact that there is still a huge fan community of SC:BW encouraged me to write the calculator :)<BR>
+</div>
+<a onMouseOver="showInfo('starcraft');" onMouseOut="hideInfo('starcraft');">Why StarCraft?</a><BR>
+
+<div id="exact" class="tooltip">
+<B>Is the result exact?</B><BR>
+<BR>
+Definitely NO.<BR>
+The results are a good approximation, because of this two points:<BR>
+- SCC works in 1 second steps while StarCraft works in ~1/10 second steps<BR>
+- The mineral gathering is only about +/- 0.5 minerals per second or about +/- 2 worker correct.<BR>
+- The maps are different and so are the mineral block placements<BR>
+- Your own click speed is not implemented in the program :)<BR>
+<BR>
+All this stresses what I said before:<BR>
+You have to take the calculated build order and use it in the game, with your own click speed and with that specific map.<BR>
+Maybe return to the calculator, decrease the Mineral_Mod in the settings.txt a little and rerun the calculation.<BR>
+Besides that, the result is pretty exact :)<BR>
+</div>
+
+<a onMouseOver="showInfo('exact');" onMouseOut="hideInfo('exact');">Is the result exact?</a><BR>
+<div id="gui" class="tooltip">
+<B>Why no GUI?</B><BR>
+<BR>
+That is an easy question:<BR>
+I do not know how to do that.<img src="../images/grngrin.gif"><BR>
+It would probably be nice to enter the goals with the mouse.<BR>
+On the other hand it would be no longer portable (?).<BR>
+Well but the most important reason is simple: I have no time :}<BR>
+Maybe there is a brave soul out there who would like to help me ;)
+</div>
+<a onMouseOver="showInfo('gui');" onMouseOut="hideInfo('gui');">Why no graphical user interface?</a><BR>
+
+<div id="cheat" class="tooltip">
+<B>Is this program a cheat?</B><BR><BR>
+Well... in a way... yes.<img src="../images/grngrin.gif"><BR>
+If you use the program correctly you might get an advantage over your enemy.<BR>
+But you get the same advantage by watching replays, reading strategy articles or just playing the game.<BR>
+In my own opinion: It is no cheat. It is <B>fun</B> to try new build orders, surprise the enemy and bring 'new wind' into the game.<BR>
+</div>
+<a onMouseOver="showInfo('cheat');" onMouseOut="hideInfo('cheat');">Is this just another cheat?</a><BR>
+<div id="idea" class="tooltip">
+<B>How did I get the idea?</B><BR><BR>
+Originally I wanted to test some 'Artificial Life' algorithms and was on the search for some problems to solve. I tried it with agents acting in a artificial environment but it did not work :p. Well... I moved on to an easier piece:<BR>Optimizing linear structures.<BR>
+At that time I had no idea that optimizing is so easy with the hill climbing algorithm...<BR>
+</div>
+<a onMouseOver="showInfo('idea');" onMouseOut="hideInfo('idea');">How did I get the idea to this program?</a><BR>
+<div id="motivation" class="tooltip">
+<B>Motivation?</B><BR><BR>
+Well, there are several points that motivated me.<BR>
+Firstly I wanted to create a 'complete' program. Programming the core so that it 'functions' is one thing, making it useable for other people is another. I wanted to have that 'ok. it is complete.'-feeling :)<BR>
+Of course, I hope for better job chances and some attention, gain the fruits of my work, but I also want to let start some arguments about this whole subject as in terms of StarCraft BroodWar not much is happening in the moment...<BR>
+</div>
+<a onMouseOver="showInfo('motivation');" onMouseOut="hideInfo('motivation');">From where did I get the motivation?</a><BR>
+<div id="time" class="tooltip">
+<B>How much time?</B><BR><BR>
+2 years.<BR>
+!?<BR>
+Yes, 2 years :)<BR>
+Of course, I did not work full time 2 years...<BR>
+Actually I worked in 3 blocks. Summer 2001 (v1.00), Spring 2002 (v1.01) and Spring 2003 (v1.02)<BR>
+I needed so long because I rewrote the whole program several times and tried different algorithms.<BR>
+</div>
+<a onMouseOver="showInfo('time');" onMouseOut="hideInfo('time');">How much time did I invest in the program?</a><BR>
+<div id="knowledge" class="tooltip">
+<B>Knowledge?</B><BR><BR>
+Besides a good understanding of the programming language C and some C++ you probably need a very good plan about the program structure if you do not want to rewrite the program (like me) several times <img src="../images/grntongue.gif">.<BR>Without my broad experience with the game StarCraft itself it would have been hard to get the program work as there is much so-called 'expert knowledge' embedded in the code.<BR>
+</div>
+<a onMouseOver="showInfo('knowledge');" onMouseOut="hideInfo('knowledge');">How/Where did I get the knowledge?</a><BR>
+<div id="future" class="tooltip">
+<B>Future of SCC?</B><BR><BR>
+The 'ultimate goal' of scc is a general optimization tool, applicable to any problem. Of course, Scc 1.02 is still far from this point, especially as the rules of StarCraft are still weaved too deep in the program and only one simple problem solving algorithm is implemented.<BR>
+<B>What about SCC 1.0x?</B><BR>
+There are some features I want to have in the program like expansions, the possibility for mid-game build orders (i.e. including the enemy build order in the own calculations) and especially faster calculations.<BR>
+It depends how much (positive) response I get :)
+</div>
+<a onMouseOver="showInfo('future');" onMouseOut="hideInfo('future');">What is the future of scc?</a><BR>
+<BR>
+<BR>
+<BR>
+<B>A little introduction into SCC:</B><BR>
+<BR>
+<div id="param" class="tooltip">
+<B>How to start SCC</B><BR><BR>
+Just type in 'scc.exe'<BR>
+(or if you are a linux user, type 'make' and then './scc')<BR>
+I suggest that you switch to <B>full screen mode</B> (ALT+ENTER) because the console modus has a pretty slow refresh rate...<BR>
+Then just take your favorite race and let the demonstration begin.<BR>
+After your first impression, read other items about it, fit the settings and goals to your needs and/or watch the tutorial video :)<BR>
+</div>
+<a onMouseOver="showInfo('param');" onMouseOut="hideInfo('param');">How to start SCC</a>
+<BR>
+<div id="test" class="tooltip">
+<B>How to test own build orders</B><BR><BR>
+In that case you need the '-t' parameter.<BR>
+You can either transmit your build order directly over the command line:<BR>
+<B>scc -B 5 drone extractor drone spawningpool drone overlord MetabolicBoost 3 Zerglings -t</B><BR>
+or write all your stuff in another file and use the '-i' parameter:<BR>
+<B>scc -I mybo.bla -t</B><BR>
+In that file please use one line for each goal.<BR>
+<BR>
+One feature I implemented is some sort of a spell checking/pattern recognition, so do not bother type errors.<BR>
+Just remember not to write spaces: Not "Command Center" but "CommandCenter".
+</div>
+
+<a onMouseOver="showInfo('test');" onMouseOut="hideInfo('test');">How to test own build orders</a>
+<BR>
+
+<div id="settings" class="tooltip">
+<B>Adapt the settings...</B><BR>
+<BR>
+You should take a look in the 'settings.txt'.<BR>
+There you can change the number of geysirs, mineral blocks, mining speed, distance to the enemy and some more miscellaneous settings.<BR>
+Especially emulating so-called 'BGH' maps are possible this way.<BR>
+Just play around and examine the results :)<BR>
+</div>
+<a onMouseOver="showInfo('settings');" onMouseOut="hideInfo('settings');">How to adapt the settings to your needs</a>
+<BR>
+<div id="results" class="tooltip">
+<B>What to do with the results?</B>
+<BR>
+<BR>
+Well... you get a complete build order with exact timing... But in a real game it is impossible to follow the BO <I>exactly</I>.<BR>
+The result is more of a theoretical use. In order to get a real working BO it is important that you exercise it in the game. Even the slightest differences between the maps, an annoying enemy scout probe or simply a wrong click can cause your BO to need more time than calculated.<BR>
+And I can only repeat: The result presents only the <B>FASTEST</B> BO to reach the goals, NOT the best... It is up to you to actually win a game with it ;-).<BR>
+</div>
+<a onMouseOver="showInfo('results');" onMouseOut="hideInfo('results');">What to do with the results</a>
+<BR>
+
+<div id="help" class="tooltip">
+<B>How can I help?</B><BR>
+<BR>
+Besides donating or clicking on the banner below there are many ways:<BR>
+- have fun using StarCalc<BR>
+- tell your friends to use it ;)<BR>
+- tell me your opinion [Most important]<BR>
+- exchange ideas with me :)<BR>
+- help me to program a GUI for SCC<BR>
+- help me to 'beautify' the code<BR>
+</div>
+<a onMouseOver="showInfo('help');" onMouseOut="hideInfo('help');">How can I help?</a>
+<BR>
+<BR>
+<BR>
+<a href="../downloads/scc102.zip"><img src="../images/xdnload.gif" BORDER=0>Download it here! (v1.02) [~103kb]</a><BR>
+[Win32 .exe, Linux and Win32 compatible sourcecode and config .txt files]<BR>
+<BR>
+<BR>
+<BR>
+<B>About the Mineral gathering...</B><BR>
+
+A rough rule:<BR>
+5 seconds to the minerals, 5 seconds mining, 5 seconds back = 15 seconds for 8 minerals.<BR>
+Consequently there is a limit of 24 workers for 8 mineral blocks (8 workers driving back, 8 workers driving to the minerals, 8 workers mining).<BR>
+Any worker above 24 will only compensate workers who are driving from one mineral to another.<BR>
+Of course, I did test the mining speed directly in the game.<BR>
+Real mining speed is a little slower as the abstract rule above because of these movements between the minerals.<BR>
+<BR>
+I will add a graph later which will show how fast each race is gathering minerals and gas.<BR>
+<BR>
+Two more or less self explaining maps about the gathering speed of the workers:<BR>
+<BR>
+<div id="gather1" class="tooltip">
+This map is based on 'BWCL Lost Temple' with a countdown.<BR>
+That countdown starts as soon as the workers gathered 50 minerals so that they can divide them to different
+mineral blocks.<BR>
+I took the minerals (-50) after 5 minutes and divided through (5*60*workers).<BR>
+Say you have 8 probes you will get something like 1832 (-50 = 1782).<BR>
+This results in a gathering speed of 1782/2400 = ~0.7425 minerals per worker and second (or 5.94 per second with 8 workers).<BR>
+</div>
+<div id="gather2" class="tooltip">
+This is a self made map which demonstrates the different gathering speed only due to the direction of the worker.<BR>
+Just send both workers to the minerals and watch their speed... (one scv vertical, the other horizontal)<BR>It is an evil hack of the Blizzard programmers, probably to balance the clear disadvantage of different positions (i.e. where the worker comes out of the nexus/hatchery/command center).<BR>
+This is just a small gizmo as it has no real effect to the game as the minerals are placed in different directions and the workers also move between the mineral blocks.<BR>
+This effect is only game relevant (i.e. significant gathering speed difference) when dealing with very few workers (i.e. below 4)<BR>
+</div>
+<center>
+- <a onMouseOver="showInfo('gather1');" onMouseOut="hideInfo('gather1');" href="../downloads/gather1.scm">gather1.scm</a> -
+- <a onMouseOver="showInfo('gather2');" onMouseOut="hideInfo('gather2');" href="../downloads/gather2.scm">gather2.scm</a> -
+</center>
+<BR>
+<BR>
+
+<B>Chat:</B><BR>
+<a href="irc://irc.quakenet.org/clawsoftware" onMouseOver="showInfo('quake');" onMouseOut="hideInfo('quake');">#clawsoftware</a> [Quakenet]<BR>
+<div id="quake" class="tooltip">
+<B>Chat</B><BR>
+<BR>
+<B>Server :</B> Quakenet (Port: 6667)<BR>
+<B>Channel:</B> #clawsoftware<BR>
+<B>my nick:</B> AMB|Claw<BR>
+<B>Time   :</B> Sa/So<BR>
+- 18:00-19:00 (GMT+1)<BR>
+- [6:00 - 6:30 p.m.]<BR>
+I will be online more often after 04/20/04.<BR>
+</div>
+
+<BR>
+<BR>
+<B>Some FAQ:</B><BR>
+<BR>
+<I>None yet...</I> <a href="mailto:ghoul@clawsoftware.de">Mail me some :)</a><BR>
+<BR>
+<BR>
+<BR>
+<B>Some in-program explanations:</B><BR>
+<img src="../images/hint.gif"> Move your mouse over the green spots to get help.<BR>
+<BR>
+
+<div id="spam" class="tooltip">
+<B>Spam</B><BR><BR>
+This is just some spam :)<BR>
+I will probably put there some more useful information later...<BR>
+</div>
+<div id="morespam" class="tooltip">
+<B>More Spam</B><BR><BR>
+More spam for you <img src="../images/grngrin.gif"><BR>
+Perhaps someone knows a better line :)<BR>
+</div>
+<div id="total" class="tooltip">
+<B>Total generations</B><BR><BR>
+This represents the number of generations tested.<BR>
+One generation is complete when 100 build orders were tested and their fitness is calculated.<BR>
+</div>
+<div id="remaining" class="tooltip">
+<B>Remaining runs</B><BR><BR>
+To increase the probability to catch the best build order the program goes through several runs.<BR>
+A 'run' is complete when 250 generations without a single improvement (time, resources, goals) are complete.<BR>
+At the end of the program the solution of each run is compared and saved into a file.<BR>
+</div>
+<div id="status" class="tooltip">
+<B>Status of calculation</B><BR><BR>
+The status roughly describes what is going on.<BR>
+At first the program tries to find a build order that fulfills the goals.<BR>
+This solution is in the most cases pretty bad so in this new phase it is optimized by time now.<BR>
+When no faster solution is found, the program optimizes the build order for resources (i.e. more workers)<BR>.
+</div>
+<div id="force" class="tooltip">
+<B>Force</B><BR><BR>
+This is a list what goals are fulfilled.<BR>
+The colors (white, green, cyan, red, blue) present how long ago the last change is made.<BR>
+</div>
+<div id="nongoals" class="tooltip">
+<B>Non-goal force list</B><BR><BR>
+These are all units that are no goals but exist at the end of the calculation.<BR>
+In most cases these are workers, supply units/buildings and capital buildings (Nexus, Command Center, Hatchery).<BR>
+</div>
+<div id="resources" class="tooltip">
+<B>Resources</B><BR><BR>
+This is a sign how much resources (minerals + vespene gas) were harvested with this build order.<BR>
+It is multiplied by modificator in some cases (when you change the Mineral_Mod, Mineral_Blocks or Vespene_Geysirs)<BR>
+</div>
+<div id="timed" class="tooltip">
+<B>Time</B><BR><BR>
+This number represents the time the build order needs to fulfill all goals and get the units to the enemy (if you set Time_to_Enemy to something bigger than zero).<BR>
+A '----' means that no solution was found yet.<BR>
+If that does not change a long time try to reduce the amount of goals or increase the time limits of some goals.<BR>
+</div>
+<div id="buildo" class="tooltip">
+<B>Build Order</B><BR><BR>
+Well this is the main output of the program.<BR>
+A '@' means that this is a goal.<BR>
+The following char is a bit tricky: it describes what requirement was fulfilled when that unit was built.<BR>
+... means that the unit waited for ...<BR>
+- 'o': "OK", the unit had to wait for no requirement.<BR>
+- 'b': building or unit to complete.<BR>
+- 'm': minerals.<BR>
+- 'g': gas.<BR>
+- 's': enough supply.<BR>
+- 'l': enough larva.<BR>
+- 'w': workers (especially zerg).<BR>
+- 'r': a research to complete.<BR>
+- 't': timeout (does not happen I think)<BR>
+<BR>
+After the unit name the number describes the needed supply at the time of the start of the production.<BR>
+If you set 'Detailed Info' to 0, there will be a different output:<BR>
+There is a timestamp and multiple units of the same type are put together (with a counter in front).<BR>
+</div>
+
+<div id="nothing" class="tooltip">
+<B>/dev/null</B><BR><BR>
+Nothing here :)<BR>
+It just means that this place is not needed for calculation (i.e. that unit could not be build or the place is after all goals and the calculation is complete).<BR>
+</div>
+<BR>
+<center>
+
+<map name="help">
+<area coords="550,412,592,454" onMouseOver="showInfo('spam');" onMouseOut="hideInfo('spam');">
+<area coords="204,4,246,46" onMouseOver="showInfo('morespam');" onMouseOut="hideInfo('morespam');">
+<area coords="356,38,398,80" onMouseOver="showInfo('total');" onMouseOut="hideInfo('total');">
+<area coords="26,26,68,68" onMouseOver="showInfo('remaining');" onMouseOut="hideInfo('remaining');">
+<area coords="452,22,494,64" onMouseOver="showInfo('status');" onMouseOut="hideInfo('status');">
+<area coords="574,14,616,56" onMouseOver="showInfo('force');" onMouseOut="hideInfo('force');">
+<area coords="500,256,542,298" onMouseOver="showInfo('nongoals');" onMouseOut="hideInfo('nongoals');">
+<area coords="20,112,62,154" onMouseOver="showInfo('resources');" onMouseOut="hideInfo('resources');">
+<area coords="94,112,136,154" onMouseOver="showInfo('timed');" onMouseOut="hideInfo('timed');">
+<area coords="84,276,126,318" onMouseOver="showInfo('buildo');" onMouseOut="hideInfo('buildo');">
+<area coords="354,278,396,320" onMouseOver="showInfo('nothing');" onMouseOut="hideInfo('nothing');">
+</map>
+<img src="../images/help.jpg" usemap="#help" BORDER=0><BR>
+<br>
+<br>
+<br>
+<center>
+<img src="../images/knowm.jpg"><BR>
+</center>
+<BR>
+Well I am planning to make a small tutorial video <img src="../images/grngrin.gif"><BR>
+Just be patient :)<BR>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<IFRAME WIDTH=800 HEIGHT=150 SCROLLING=NO FRAMEBORDER=0 SRC="../includes/rights.htm">
+</IFRAME>
+</td>
+</tr>
+</table>
+</body>
+</html>

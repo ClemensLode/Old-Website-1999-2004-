@@ -1,11 +1,9 @@
 
-function showInfo(Name)
+function showInfo(Name,Type)
 {
 	obj = document.getElementById(Name);
 	obj.style.visibility="visible";
-}
-function amazona(Name,Type)
-{
+
 	if(Type>0)
 	{
 		switch(Type)
@@ -32,10 +30,9 @@ function hideInfo(Name)
 	obj.style.visibility="hidden";
 }
 
-function random() {
-  currentdate = new Date()
-  return(currentdate.getSeconds())
-}
+
+
+
 
 
 

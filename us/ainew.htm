@@ -160,29 +160,27 @@ Well, I'll talk about that in "AI Part II" :)<BR>
 
 
 
-<font size=+2><B>AI Part II</B></font><BR>
+<font size=+2><B>AI Part II<BR></B></font>
 <BR>
-<IMG SRC="../images/line.gif" HEIGHT=10 WIDTH=504 ALT="line"><BR>
-
+<IMG SRC="../images/line.gif" HEIGHT=10 WIDTH=504 ALT="line">
 <div id="genetic" class="tooltip">
 <B>Genetics</B><BR>
 <BR>
-Every lifeform on earth has a special code in each cell. It's like a computer program but each part of the program is heavily connected to the others. Imagine it like a huge parallel computer with many interconnections between the programs/computer towers.
+Every lifeform on earth has a special code in each cell. It's like a computer program but each part of the program is heavily connected to the others. Imagine it like a huge parallel computer with many interconnections between the programs/towers.
+<BR>     
 </div> 
-
 <div id="fitness" class="tooltip">
 <B>Fitness</B><BR>
 <BR>
-The "fitness" of a program is a measurement how well a computer program satisfy a certain problem.
+The "fitness" of a program is a measurement how well a computer program satisfy a certain problem..
 </div>
-
 <a onMouseOver="showInfo('genetic')';" onMouseOut="hideInfo('genetic');"><i>Genetic</i></a> Algorithms? Hu? Do you create bacteria and viruses in a dark lab beneath the surface?<img src="../images/DrCossack.gif" ALT="DrCossack"><BR>
 
 
 The first version used these genetic algorithms.<BR>
 At first a small overview:<BR>
 <img src="../images/DrLight.gif" ALT="DrLight">
-The program creates say 100 randomized build orders. After that it calculates the <a onMouseOver="showInfo('fitness');" onMouseOut="hideInfo('fitness');"><i>fitness</i></a> depending on the goals I set up. A 'goal' is in this case for example "Build 10 SpaceMarines and upgrade their weapons and do that as fast as possible".<BR>
+The program creates say 100 randomized build orders. After that it calculates the <a onMouseOver="showInfo('fitness');" onMouseOut="hifeInfo('fitness');"><i>fitness</i></a> depending on the goals I set up. A 'goal' is in this case for example "Build 10 SpaceMarines and upgrade their weapons and do that as fast as possible".<BR>
 Afterwards the worst BOs are 'selected' and deleted while the best ones may ... well 'digitally copulate' with others to merge their genetic information, i.e. their build order.<BR>
 <div id="mutation" class="tooltip">
 <B>Mutations</B>
@@ -254,6 +252,263 @@ Mmmh... this is the end of chapter II and there are many open questions... <BR>
 Especially about that ANN thing, the 'evolution' concept and some more about Genetic programming.<BR>
 I am also planning to open the source of the old starcraft calculator and write a documentation.<BR> 
 Well... Part III is already in development, so be patient <img src="../images/wave.gif" ALT="wave">
+<BR>
+<BR>
+<BR>
+Here it comes :)
+<BR>
+<B> AI Part III - (Artificial) Neural Networks </B>
+<BR>
+<IMG SRC="../images/line.gif" HEIGHT=10 WIDTH=504 ALT="line"> 
+<BR>
+Roughly said: A Neural Network is the thing you call 'brain'.<BR>
+It consists of input cells/cell groups like the eye, the ear or the nose and output cells/cell groups like most muscle cells. In addition there are 'hidden units', the cells which connect input and output units.  
+<BR>
+To this point it is just like a camera or a computer.<BR>
+<BR>
+So why is a computer or a camera (without special programming) not able to think like a human brain? In other words:  What is special about this kind of Neural Networks?
+<BR><BR>
+The special thing about a Neural Network is, that its structure provides a certain ability: It is able to learn.
+<BR><BR>
+That is something a computer is not able to do (except you are simulating a neural network on the computer :P).  
+<BR><BR>
+The rule behind that 'learning' is surprisingly simple:<BR>
+If there is a difference between the output of the neural network and the preferred output in that situation (for example: the right decision), then modify the connections between the (hidden) units to get the preferred output next time.
+<BR><BR>
+An example will make it clear:<BR>
+User: 3+3 = ?<BR>
+Computer: 7<BR>
+User: Wrong. The correct answer is 6.<BR>
+User: 3+3 = ?<BR>
+Computer: 6<BR>
+<BR>
+MMmh... that looks like that the NN just saves the result in a database and recalls it when needed...
+<BR><BR>
+Well... you are right, the NN is some kind of database.
+But that database has the ability to generalize the problem and is able to solve problems that it never exercised!
+<BR><BR>
+It is probably hard to believe... That is the reason why we make our own Artificial Neural Network now :)
+<BR><BR>
+All you need is a pen, paper and a brain :-)
+<BR><BR>
+<B>Today's task</B>: The NN shall learn to add binary numbers.
+<BR><BR>
+For those who are not very familiar with binary:<BR>
+10 + 01 = 11<BR>
+01 + 01 = 10<BR>
+11 + 01 = 00<BR>
+11 + 10 = 01<BR>
+<BR>
+Ok, so we need 4 Input units, 2 Output units and a number of hidden units.<BR>
+Let us take 2 Hidden units in this case.<BR>
+<BR>
+AB + CD    		=               EF <BR>
+||   ||				        ^^<BR>		
+||   |\->[ I1 ] \ 		        || <BR>
+||   \-->[ I2 ] - X [ H1 ] X [ O1 ] ----/|<BR>
+|\------>[ I3 ] - X [ H2 ] X [ O2 ] -----/<BR>
+\------->[ I4 ] /<BR>
+<BR>
+Explanation:
+<BR><BR>
+A unit has the output "-1" when the sum of all incoming nodes is <0, 0 when the sum is 0 and it has the output "1" when the sum is >0.<BR>
+There is only one incoming node to I1 to I4, consequently I4 = A, I3 = B, I2 = C, I1 = A. The same thing applies to E and F: E = [O1], F = [02].
+The "X" means that all previous Nodes are connected and multiplied by a scalar. This results in:<BR>
+If ([I1]*a1+[I2]*a2+[I3]*a3+[I4]*a4>0) then H1=1 else if (...<0) H1=-1 else H1=0<BR>
+and<BR>
+If ([I1]*b1+[I2]*b2+[I3]*b3+[I4]*b4>0) then H2=1 else H2=0<BR>
+<BR>
+and again the same thing for O1/O2:<BR>
+<BR>
+If ([H1]*c1+[H2]*c2>0) then O1=1 else O1=0<BR>
+and<BR>
+If ([H1]*d1+[H2]*d2>0) then O2=1 else O2=0<BR>
+<BR>~~~~~
+You might notive that the scalar variables a1, a2, ..., c1, c2, ..., d2 have a significant effect on the result and therefor defining the neural network.
+:x
+<BR><BR>
+This network now can learn any mathematical operation with two bits.   
+<BR><BR>
+Now we only have to initialize the neural network with random values and give it some test cases.
+<BR><BR>
+a1=-1   a2=-0.5 a3= 0.5 a4=-1<BR>
+b1=-1   b2=-1   b3= 1   b4=-0.5<BR>
+c1= 0.5 c2=-1<BR>
+d1= 1   d2= 1<BR>
+<BR>
+<BR>
+Test Case 1: 01 + 10 (= 11)<BR>
+=> I1=0, I2=1, I3=1, I4=0<BR>
+=> H1=((-1 * 0) + (-0.5 * 1) + (0.5 * 1) + (-1 * 0)) = 0
+=> H2=((
+
+
+
+
+
+
+=> H1=((-1 * 0) + (-0.5 * 1) + (0.5*1) + (-1 * 0)) > 0 = (-0.5 + 0.5) > 0 = 0<BR>
+   H2=((-1 * 0) + (-1 * 1) + (1* 1) + (-0.5*0) > 0) = (-1 + 1) > 0 = 0<BR>
+=> O1 = (0.5 * 0) + (-1 * 0) > 0 = 0<BR>
+   02 = (1 * 0) + (1 * 0) > 0 = 0 <BR>
+<BR>
+Wrong.<BR>
+But that is what we expected, the NN is still unexperienced.<BR>
+<BR>
+Now we have to use our rule.<BR>
+This might look a bit confusing as there are now several ways of changing the NN to get a "11" instead of "00" as the result.
+There are several algorithms but we want to use now just our brain.
+<BR>
+01 gets > 0 when (I)   ((H1=1) and (H2=0)) and/or <BR>
+                 (II)  ((H1=0) and (H2=1) and we change the c2 to 0.5) and/or<BR>
+		 (III) ((H1=1) and (H2=1) and we change the c2 to 0.5) and/or<BR>
+		 (IV)  ((H1=1) and (H2=1) and (c1=1) and (c2=-0.5))	 <BR>
+                  <BR>
+O2 gets > 0 when (V)  ((H1=1) and/or (H2=1)) and/or<BR>
+                 (VI) (O1=1)     (because O1 => (H1=1) or (H2=1))<BR>
+<BR>
+The best decision here is probably to take the path with the smallest number of changes in the network as any change will affect other calculations, too.<BR>
+So let us try (II) and (VI).<BR>
+=> new c2 = 0.5<BR>
+=> H2=1<BR>
+<BR>
+H2 = 1?<BR>
+But H2 was 0!<BR>
+So this is again wrong.<BR>
+Well, so we have to do the next step: Changing the network in a way so that we get H2=1 with the Input of our test case 1.
+<BR>
+Let us look back to the calculation:<BR>
+
+<i>H2=((-1 * 0) + (-1 * 1) + (1* 1) + (-0.5*0) > 0) = (-1 + 1) > 0 = 0</i><BR>
+<BR>
+We cannot change the Inputs I1=0 and I4=0 so we concentrate on the scalars b2 and b3. 
+<BR><BR>
+H2 becomes > 0 if (I)   (b2=-0.5)		and/or <BR>
+		  (II)  (b2=0.5)		and/or <BR>
+                  (III) (b2=1) 			and/or<BR>
+		  (IV)  ((b2=0.5) and (b3=0.5)) and/or<BR>
+		  (V)	((b2=1) and (b3=0.5))	and/or<BR>
+		  (VI)  ((b2=1) and (b3=-0.5))	and/or<BR>
+		<BR>
+So there are many possible changes.<BR>
+As above we take the smallest modification (I):<BR>
+new b2=-0.5<BR>
+<BR>
+Finally we got our Neural Network that is able to add 01 and 10 successfully :-)<BR>
+<BR>
+a1=-1   a2=-0.5 a3= 0.5 a4=-1<BR>
+b1=-1   <B>b2=-0.5</B>   b3= 1   b4=-0.5<BR>
+c1= 0.5 <B>c2=0.5</B><BR>
+d1= 1   d2= 1<BR>
+<BR>
+I will go over the next steps only briefly:<BR>
+Test case Nr. 2: 11 + 11 = 10 (remember, the overflow bit 100 is dropped here as the output is only 2 bits broad)<BR>
+<BR>
+=> I1=1, I2=1, I3=1, I4=1<BR>
+=> H1=((-1 * 1) + (-0.5 * 1) + (0.5*1) + (-1 * 1)) > 0 = (-1-0.5-0.5-1) > 0? = 0<BR>
+   H2=((-1 * 1) + (-0.5 * 1) + (1* 1) + (-0.5*1) > 0) = (-1-0.5+1-0.5) > 0? = 0<BR>
+=> O1 = (0.5 * 0) + (0.5 * 0) > 0 = 0<BR>
+   02 = (1 * 0) + (1 * 0) > 0 = 0 <BR>
+<BR>
+O1 = 0 -> wrong<BR>
+O2 = 0 -> correct<BR>
+<BR>
+O1 becomes > 0 if (I)  (H1=1) and/or
+	          (II) (H2=1)
+=> (II)<BR>
+<BR>
+H2 becomes > 0 if (I)   (b1=0.5) and/or
+		  (II)  (b2=1) and/or
+		  (III) (b4=1) and/or
+		  (IV)  ((b1=-0.5) and (b2=0.5))
+		  (V)	((b1=-0.5) and (b4=0.5))
+		  (VI)	((b2=0.5) and (b4=0.5))
+		  ... (some more irrelevant possibilities)
+=> (V)<BR>
+Problem: O2 gets 1 then, too. -> d2 = -0.5  
+<BR>
+a1=-1   a2=-0.5 a3= 0.5 a4=-1<BR>
+<B>b1=-0.5</B>   <i>b2=-0.5</i>   b3= 1   <B>b4=0.5</B><BR>
+c1= 0.5 <i>c2=0.5</i><BR>
+d1= 1   <B>d2=-0.5</B><BR>
+<BR>
+Test case Nr. 3: 01+01 (= 10)<BR)
+=> I1=1, I2=0, I3=1, I4=0<BR>
+=> H1=((-1 * 1) + (-0.5 * 0) + (0.5*1) + (-1 * 0)) > 0 = (-1 + 0.5 ) > 0 = 0<BR>
+   H2=((-0.5 * 1) + (-0.5 * 0) + (1* 1) + (0.5*0) > 0) = (-0.5 + 1) > 0 = 1<BR>
+=> O1 = (0.5 * 0) + (0.5 * 1) > 0 = 1<BR>
+   02 = (1 * 0) + (-0.5 * 1) > 0 = 0 <BR>
+<BR>
+O1 = 1 -> correct<BR>
+O2 = 0 -> correct<BR>
+great :)<BR>
+<BR>
+<BR>
+Test case Nr. 4: 10+01 (= 11)<BR>
+Yes, we had something like that in the first example... But the NN does not know (yet) that addition is commutative...<BR>
+=> I1=1, I2=0, I3=0, I4=1<BR>
+=> H1=((-1 * 1) + (-0.5 * 0) + (0.5*0) + (-1 * 1)):x > 0 = (-1 -1 ) > 0 = 0<BR>
+   H2=((-0.5 * 1) + (-0.5 * 0) + (1* 0) + (0.5*1) > 0) = (-0.5 + 0.5) > 0 = 0<BR>
+=> O1 = 0 -> wrong
+   O2 = 0 -> wrong	 
+01 and 02 gets >0 if (I)   (H1>0) and/or
+		     (II)  ((H2>0) and (d2=0.5))
+I will take (I) as it is probably not good changing d2 back to 0.5.<BR>
+H1 gets >0 if (I) (a1=0.5 and a4=0.5)
+Taking (I) there is a high chance that we will modify some other results, too.<BR>
+Well... let's proceed:
+
+<B>a1=0.5</B>   a2=-0.5 a3= 0.5 <B>a4=0.5</B><BR>
+<i>b1=-0.5</i>   <i>b2=-0.5</i>   b3= 1   <i>b4=0.5</i><BR>
+c1= 0.5 <i>c2=0.5</i><BR>
+d1= 1   <i>d2=-0.5</i><BR>
+
+Test case Nr. 5: 00 + 10 (=10)<BR>
+=> I1=0, I2=1, I3=0, I4=0<BR>
+=> H1=((0.5 * 0) + (-0.5 * 1) + (0.5*0) + (0.5 * 0)) > 0 = (- 0.5 ) > 0 = 0<BR>
+   H2=((-0.5 * 0) + (-0.5 * 1) + (1* 0) + (0.5*0) > 0) = (-0.5 ) > 0 = 0<BR>
+=> O1 = 0 -> wrong
+   O2 = 0 -> true
+ 
+O1 gets >0 if  H2=1
+=> H2 gets >0 if b2=0.5
+
+
+Test case Nr. 6: 00 + 01 (=01)<BR>
+H1 = 1
+H2 = 0
+=> O1=1, O2=1         
+  	
+
+
+
+
+
+	 
+
+
+
+ 
+<BR>
+<BR>
+
+And now, it is completed. The neural network has learned to add only by giving it examples and by telling it whether its result is right or wrong.
+<BR>
+Of course... You will not see much generalization here as the number of possible test cases is too small.
+But I think the general concept is clear now.
+<BR><BR>
+Feel free to add an overflow-bit output, try a 3bit neural network or add additional hidden units.
+The more (input/hidden/output) units you add, the more generalization is possible.
+<BR><BR>
+As you might have noticed: There are a lot parallel computation. Every cell in our brain is some kind of an analog computer that adds the incoming nerve impuls to a new one.
+This is applied kinda tricky:<BR>
+The (electric) nerve impuls arrives at the target-nerve cell where it releases so called chemical emitter into the target-nerve cell where it is automaticly added together (wel... the emitter chemicals come together and then they are there... that's all... just like putting two apples together... There is no calculation needed, there ARE two apples as soon as you put them there :P ) <BR> 
+When a certain amount of emitter chemicals in the cell are reached, it creates a new electrical impulse and so on...
+
+<BR><BR><BR>
+Well... I hope this little introduction is helpful. Just ask me when you did not understand something!<BR>
+It is very hard to write about something I already know if there are no questions...
+Thank you!<BR>
 <BR>
 <BR>
 <BR>

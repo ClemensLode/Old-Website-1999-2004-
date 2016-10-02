@@ -12,8 +12,8 @@
 <body>
 <table BORDER=0 CELLPADDING=2 WIDTH="100%">
 <tr>
-<td ALIGN=RIGHT VALIGN=TOP WIDTH=165>
-<IFRAME WIDTH=165 HEIGHT=480 SCROLLING=NO FRAMEBORDER=0 SRC="../includes/menu.htm">
+<td ALIGN=CENTER VALIGN=TOP WIDTH=165>
+<IFRAME WIDTH=165 HEIGHT=800 SCROLLING=NO FRAMEBORDER=0 SRC="../includes/menu.htm">
 </IFRAME>
 <iframe width=120 height=450 scrolling="no" frameborder=0 src="../blank.htm">
 </iframe>
@@ -34,20 +34,60 @@
 <tr><td ALIGN=RIGHT><B>Height</B><BR></td><td>~1,78m<BR></td></tr>
 <tr><td ALIGN=RIGHT><B>Living in</B><BR></td><td>Germany (Karlsruhe)<BR></td></tr>
 <tr><td ALIGN=RIGHT><B>High school</B><BR></td><td><a href="http://www.allgaeu-gymnasium.de/">Allgaeu-Gymnasium Kempten</a> (1992-2002)<BR></td></tr>
-<tr><td ALIGN=RIGHT><B>Studying</B><BR></td><td>Computer Science at the university of Karlsruhe<BR> (2002-2007)</td></tr>
-<tr><td ALIGN=RIGHT><B>Languages</B><BR></td><td>German, English, French<BR></td></tr>
-<tr><td ALIGN=RIGHT><B>Email</B><BR></td><td><a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#103;&#104;&#111;&#117;&#108;&#64;&#99;&#108;&#97;&#119;&#115;&#111;&#102;&#116;&#119;&#97;&#114;&#101;&#46;&#100;&#101;" class="link">&#103;&#104;&#111;&#117;&#108;&#64;&#99;&#108;&#97;&#119;&#115;&#111;&#102;&#116;&#119;&#97;&#114;&#101;&#46;&#100;&#101;</a></td></tr>
+<div id="uni" class="tooltip">
+<B>University</B><BR>
+<BR>
+- Second semester computer science<BR>
+- Maths as additional course<BR>
+- Maybe bioinformatics someday later<BR>
+</div>
+<tr><td ALIGN=RIGHT><B>Studying</B></td><td><a onMouseOver="showInfo('uni');" onMouseOut="hideInfo('uni');"> Computer Science at the university of Karlsruhe<BR> (2002-2007)</a></td></tr>
+<tr><td ALIGN=RIGHT><B>Languages</B></td><td>German, English, French, soon Chinese</td></tr>
+<tr><td ALIGN=RIGHT><B>Email</B></td><td><a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#103;&#104;&#111;&#117;&#108;&#64;&#99;&#108;&#97;&#119;&#115;&#111;&#102;&#116;&#119;&#97;&#114;&#101;&#46;&#100;&#101;" class="link">&#103;&#104;&#111;&#117;&#108;&#64;&#99;&#108;&#97;&#119;&#115;&#111;&#102;&#116;&#119;&#97;&#114;&#101;&#46;&#100;&#101;</a></td></tr>
+<tr><td ALIGN=RIGHT><B>Chat</B></td><td><a href="irc://irc.quakenet.org/clawsoftware" onMouseOver="showInfo('quake');" onMouseOut="hideInfo('quake');">#clawsoftware</a> [Quakenet]</td></tr>
 </table>
+
+<div id="quake" class="tooltip">
+<B>Chat</B><BR>
+<BR>
+<B>Server :</B> Quakenet (Port: 6667)<BR>
+<B>Channel:</B> #clawsoftware<BR>
+<B>my nick:</B> AMB|Claw<BR>
+<B>Time   :</B> Sa/So<BR>
+- 18:00-19:00 (GMT+1)<BR>
+- [6:00 - 6:30 p.m.]<BR>
+I will be online more often after 04/20/04.<BR>
+</div>
+
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
 </td>
-<td>
-<img src="../images/clemens.jpg" WIDTH=148 HEIGHT=196 ALT="My Picture :P">
+<td VALIGN=TOP>
+
+<script language="JavaScript">
+<!--
+function changePic(Num) 
+{
+	if(Num==10) document.ppic.src="../images/clemens.jpg";
+	else
+	document.ppic.src="../images/pers/ppic"+(random()%10)+".jpg";
+}
+-->
+</script>
+
+<img src="../images/clemens.jpg" onMouseOver="changePic('0');" onMouseOut="changePic('10');" ALT="My Picture :P" NAME="ppic">
 </td>
 </table>
 
-<BR>
 <img src="../images/bizeps.gif" align="left" WIDTH=200 HEIGHT=184 ALT="Bizeps">
 <BR>
 <div id="econ" class="tooltip">
+<B>Law, b.a. and economics</B><BR>
+<BR>
 2 years in school, A-Levels<BR>
 Law, Business Administration, Economics<BR>
 </div>
@@ -56,26 +96,31 @@ o <a onMouseOver="showInfo('econ');" onMouseOut="hideInfo('econ');">law, b.a. an
 
 
 <div id="cooking" class="tooltip">
+<B>Cooking</B><BR>
+<BR>
 cheaper and better than junk food :)<BR>
 - n00dles, rice, potatoes<BR>
-- rice<BR>
 - sauces<BR>
-- fish, meat<BR>
+- fish, chicken<BR>
 - (layer) cakes<BR>
 - soups<BR>
-- learning asia-cooking at the moment<BR>
+- chinese wok-cooking<BR>
 </div>
 o <a onMouseOver="showInfo('cooking');" onMouseOut="hideInfo('cooking');">cooking</a><BR>
 
 <div id="karate" class="tooltip">
-actively played from 1989 to 1990<BR>
+<B>Karate</B><BR>
+<BR>
+actively trained from 1989 to 1991<BR>
 - reached yellow grade<BR>
 - first prize in children's kata 1990<BR>
-- end of 'career' after a little accident (which cost me 1 1/2 teeth :P)<BR>
+- end of 'career' after a little accident (which cost me 1 1/2 teeth <img src="../images/ugly.gif">)<BR>
 </div>
 o <a onMouseOver="showInfo('karate');" onMouseOut="hideInfo('karate');">self defense</a><BR>
 
 <div id="chess" class="tooltip">
+<B>Chess</B><BR>
+<BR>
 actively played from 1989 to 1995:<BR>
 - 'Bauerndiplom', 'Turmdiplom', 'Koenigsdiplom'<BR>
 - First place in southern Germany from <BR>
@@ -86,6 +131,8 @@ actively played from 1989 to 1995:<BR>
 o <a onMouseOver="showInfo('chess');" onMouseOut="hideInfo('chess');">chess</a><BR>
 
 <div id="math" class="tooltip">
+<B>Mathematics</B><BR>
+<BR>
 - First placed in single as in team competition at the International Day of Mathematics at the University of Ulm (southern Germany)<BR>
 - 2 additional math courses at 7th and 10th grade<br>
 - rated 80% in a math test (job orientation test)<BR>
@@ -95,13 +142,17 @@ o <a onMouseOver="showInfo('chess');" onMouseOut="hideInfo('chess');">chess</a><
 o <a onMouseOver="showInfo('math');" onMouseOut="hideInfo('math');">mathematics</a><BR>
 
 <div id="intAG" class="tooltip">
-2 years in school project group to create a website for my former school, 'Allgaeu-Gymnasium Kempten', which got
-the first prize in bavaria in 1999 as best school homepage.
+<B>Web design</B><BR>
+<BR>
+- www.clawsoftware.de since about 3 years :)<BR>
+- 2 years in school project group to create a website for my former school, 'Allgaeu-Gymnasium Kempten', which got the first prize in bavaria in 1999 as best school homepage.<BR>
 </div>
-o <a onMouseOver="showInfo('intAG');" onMouseOut="hideInfo('intAG');">Internet AG</a><BR>
+o <a onMouseOver="showInfo('intAG');" onMouseOut="hideInfo('intAG');">Web design</a><BR>
 
 <div id="games" class="tooltip">
-Several fantasy/strategy board games and roleplay games and systems<BR>
+<B>Games</B><BR>
+<BR>
+Several fantasy/strategy board games and roleplay games and systems I made:<BR>
 - 1988: pen/paper adventure ('goto number 246'-book)<BR>
 - 1990: another fantasy adventure<BR>
 - 1991: chess based board game <BR>
@@ -112,6 +163,8 @@ Several fantasy/strategy board games and roleplay games and systems<BR>
 o <a onMouseOver="showInfo('games');" onMouseOut="hideInfo('games');">Games</a><BR>
 
 <div id="programs" class="tooltip">
+<B>Computer programs</B><BR>
+<BR>
 ACTION! - Nice little 2D Shooter (ModeX, Pascal)<BR>
 WARS! - too complex fantasy/strategy game (SVGA/DirectX, Pascal/ASM/C++)<BR>
 Ants - some experiments with pathfinding engine<BR>
@@ -132,11 +185,14 @@ o <a onMouseOver="showInfo('programs');" onMouseOut="hideInfo('programs');">comp
 <B>Working on:</B>
 <BR>
 <div id="comp1" class="tooltip">
+<B>Main Computer:</B><BR>
+<BR>
 - Celeron 1,7 GhZ<BR>
 - WinFast GeForce4<BR>
 - 512 MB RAM<BR>
 - 80 GB HD<BR>
 - Logitech Dual MouseMan<BR>
+- ClickSmart 510 (webcam)<BR>
 - HappyHacking Keyboard<BR>
 - "the Claw"<BR>
 - 17" Monitor<BR>
@@ -145,6 +201,8 @@ o <a onMouseOver="showInfo('programs');" onMouseOut="hideInfo('programs');">comp
 <a onMouseOver="showInfo('comp1');" onMouseOut="hideInfo('comp1');">Celeron 1,7Ghz</a> o<BR>
 
 <div id="comp2" class="tooltip">
+<B>Laptop</B><BR>
+<BR>
 - Yakumo P-300 MMX (Laptop)<BR>
 - 64 MB RAM<BR>
 - 4 GB HD<BR>
@@ -153,7 +211,8 @@ o <a onMouseOver="showInfo('programs');" onMouseOut="hideInfo('programs');">comp
 <a onMouseOver="showInfo('comp2');" onMouseOut="hideInfo('comp2');">Yakumo P-300 MMX</a> o<BR>
 
 <div id="comp3" class="tooltip">
-my flexible friend ^^<BR>
+<B>my flexible friend ^^</B><BR>
+<BR>
 - Intel Celeron 433<BR>
 - 256 MB RAM<BR>
 - 40 GB HD<BR>
@@ -162,11 +221,12 @@ that's it :B<BR>
 <a onMouseOver="showInfo('comp3');" onMouseOut="hideInfo('comp3');">Celeron 433 MMX</a> o<BR>
 
 <div id="conn" class="tooltip">
-T-DSL 1und1 Flatrate<BR>
-(768kbit down, 128kbit up)<BR>
+<B>Internet connection</B><BR>
+<BR>
+Broadband university connection<BR>
 Homepage powered by Puretec 1und1<BR>
 </div>
-<a onMouseOver="showInfo('conn');" onMouseOut="hideInfo('conn');">Internet-Connection: ADSL</a> o<BR>
+<a onMouseOver="showInfo('conn');" onMouseOut="hideInfo('conn');">Internet-Connection: Broadband</a> o<BR>
 <BR>
 
 <BR>
@@ -221,7 +281,8 @@ o Economics<BR>
 <BR>
 'table-top game', a strategy board game without squares, armies of different species fighting against each other
 </div>
-<a onMouseOver="showInfo('Mahlstrom',1);" onMouseOut="hideInfo('Mahlstrom');">
+<a onMouseOver="showInfo('Mahlstrom');" onMouseOut="hideInfo('Mahlstrom');" onClick="amazona('Mahlstrom',1);">
+
 VOR - the Maelstrom</a> o<BR>
 
 <div id="Jonathan Tweet" class="tooltip">
@@ -231,9 +292,9 @@ Role play system, setting is Early Middle Age, Europe (~1200)<BR>
 Very good character system, especially characteristics and character development.<BR>
 And of course, EXCELLENT magic system!<BR>
 Instead of just wandering around, the group owns a home castle from where they plan their voyages.<BR>
-I hope I will find a new play group soon :]<BR>
+I hope that I will find a new play group soon :]<BR>
 </div>
-<a onMouseOver="showInfo('Jonathan Tweet',1);" onMouseOut="hideInfo('Jonathan Tweet');">Ars Magica</a> o<BR> 
+<a onMouseOver="showInfo('Jonathan Tweet');" onMouseOut="hideInfo('Jonathan Tweet');" onClick="amazona('Jonathan Tweet',1);">Ars Magica</a> o<BR> 
 <div id="Das Schwarze Auge" class="tooltip">
 <B>Das Schwarze Auge</B><BR>
 <BR>
@@ -382,8 +443,7 @@ It is another german radio play and there is also a new remake which is as good 
 <BR>
 <BR>
 <TABLE BORDER=0 WIDTH=600>
-<TD>
-<ALIGN=RIGHT>
+<TD ALIGN=RIGHT>
 <B>Movies:</B><BR>
 <BR>
 <div id="PI" class="tooltip">
@@ -441,8 +501,9 @@ It is very funny, too :)
 <div id="Robocop" class="tooltip">
 <B>Robocop</B><BR>
 <BR>
-Robocop is a man-machine, a cybernetic organism.
+Robocop is a man-machine, a cybernetic organism.<BR>
 Well, very good science fiction film about 'New Detroit' where a company wants to build a new better city out of the high-crime old Detroit...<BR>
+An essential part of the movie are the advertisements in the tv. "MagnaVolt", "Nuke'em" and that crazy "I buy that for a dollar" show ;)<BR>
 "Dead or alive, you are coming with me."<BR>
 </div>
 <a onMouseOver="showInfo('Robocop',7);" onMouseOut="hideInfo('Robocop');">Robocop</a> o<BR>
@@ -451,8 +512,8 @@ Well, very good science fiction film about 'New Detroit' where a company wants t
 <B>Jackie Chan</B><BR>
 <BR>
 <img src="../images/chan.jpg" align=left ALT="Jackie Chan as Drunken Master">
-Well, there are some crap, boring and stupid ones...<BR>  
-But there are also some very good Jackie Chan movies, with a plot, good fighting scenes etc. :)<BR>
+Well, there are some stupid JC movies...<BR>  
+But there are also some very good ones, with a plot, good fighting scenes etc. :)<BR>
 His best films are probably<BR>
 - Jackie Chan is nobody / Who am I<BR>
 - Drunken Master II<BR>
@@ -489,6 +550,7 @@ Well, let's call it entertainment light :-)<BR>
 <BR>
 It's about a child who has an huge laboratory and is dedicated to science.<BR>
 Some episodes are very childish, some are very cool and funny :)<BR>
+(Are there any similiarities between Dexter and me? :D )
 </div>
 <a onMouseOver="showInfo('DL');" onMouseOut="hideInfo('DL');">Dexter's Laboratory</a> o<BR>
 
@@ -522,9 +584,10 @@ On the other side it is a good science fiction movie that critizes media, the ar
 <div id="Wishmaster" class="tooltip">
 <B>Wishmaster</B><BR>
 <BR>
-After an accident an ancient ruby is discovered. It contains a djini which grants every wish... but always in the most cruel way.<BR>
+After an accident an ancient ruby is discovered. It contains a 'djini' which grants any wish.<BR>
+Of course always in the most cruel way...<BR>
 Not for the lighthearted ;)<BR>
-As far as I have seen the 3 (!) prequels are (us usual) not as good as the first...  
+There are some sequels (II-IV) which are probably worth a try, too :).
 </div>
 <a onMouseOver="showInfo('Wishmaster',7);" onMouseOut="hideInfo('Wishmaster');">Wishmaster</a> o<BR>
 
@@ -570,9 +633,10 @@ Well, nothing special except that nasty invisible alien creature slaying them on
 <div id="Godzilla" class="tooltip">
 <B>Godzilla</B><BR>
 <BR>
-Ah :)<BR>
+Aah :)<BR>
 This Japanese series is cult :).<BR>
 See how Godzilla (and many other monsters) destroy Tokyo again and again and again ... *g*<BR>
+Besides all that fiery breath and destruction, it is interesting how (over the course of the movies) Japan developes over time more and more improved weaponry against Godzilla :).<BR>
 </div>
 <a onMouseOver="showInfo('Godzilla',7);" onMouseOut="hideInfo('Godzilla');">Godzilla</a> o<BR>
 </td>
@@ -760,10 +824,13 @@ Loud.<BR>
 <br>
 <br>
 <br>
-<center>
-This page is located at : http://www.clawsoftware.de/us/whoami.htm<BR>
-&copy; 2002 <a href="mailto:webmaster@clawsoftware.de">ClawSoftware</a>. All Rights Reserved.<br>
-<a href="../legal/legal.htm" target=legal>Legal notices, trademark attributes and impressum.</a></center>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<IFRAME WIDTH=800 HEIGHT=150 SCROLLING=NO FRAMEBORDER=0 SRC="../includes/rights.htm">
+</IFRAME>
 </td>
 </table>
 </body>
