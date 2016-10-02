@@ -1,0 +1,30 @@
+#
+# read forum: 1 - yes, 0 - no (default value is 1)
+read=1
+
+# post messages: 1 - yes, 0 - no (default value is 1)
+post=1
+
+# background (default #FFFFFF)
+bgcolor=#FFFFFF
+
+#foreground color (default #00000)
+fgcolor=#00000C
+
+#font size (default is default browser's font)
+size=1
+
+#background for titles (default #D8CEC0)
+bgcolor1=#FFFF00
+
+# refresh time in seconds (default 300)
+refresh=600
+
+# data store
+dir=your_directory
+
+# sort data:  1 - last to first, 0 - first to last (default is 1) 
+sort=1
+
+# title
+title=My forum

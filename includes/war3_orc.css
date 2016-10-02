@@ -1,0 +1,32 @@
+body			{ font-family: arial,helvetica,sans-serif; color: #f5e9b7; font-size: 10pt; }
+p				{ font-family: arial,helvetica,sans-serif; color: #f5e9b7; font-size: 10pt; }
+span			{ font-family: arial,helvetica,sans-serif; color: #f5e9b7; font-size: 10pt; }
+pre				{ color: #da4b1e; font-size: 10pt; }
+blockquote		{ font-family: arial,helvetica,sans-serif; color: #f5e9b7; font-size: 10pt; }
+cite			{ font-family: arial,helvetica,sans-serif; color: #ffffff; font-weight: bold; font-style: normal; font-size: 10pt; }
+em				{ font-family: arial,helvetica,sans-serif; color: #ffffff; font-weight: bold; font-style: normal; font-size: 10pt; }
+b				{ font-family: arial,helvetica,sans-serif; color: #ffffff; font-weight: bold; font-style: normal; font-size: 10pt; }
+b.normal		{ font-family: arial,helvetica,sans-serif; color: #da4b1e; font-weight: bold; font-style: normal; font-size: 8pt; letter-spacing: 2px; }
+b.gray			{ font-family: arial,helvetica,sans-serif; color: #ffffff; font-weight: bold; font-style: normal; font-size: 8pt; }
+small			{ font-family: arial,helvetica,sans-serif; color: #ffffff; font-size: 8pt; font-weight: normal; font-style: normal; }
+small.normal	{ font-family: arial,helvetica,sans-serif; color: #f5e9b7; font-size: 8pt; font-weight: normal; font-style: normal; }
+li				{ font-family: arial,helvetica,sans-serif; color: #f5e9b7; font-size: 10pt; }
+h2				{ font-family: arial,helvetica,sans-serif; color: #fffffff; }
+span.header		{ font-family: arial,helvetica,sans-serif; color: #da4b1e; font-size: 12pt; letter-spacing: 3px; font-weight: bold; font-variant: small-caps;}
+span.header2	{ font-family: arial,helvetica,sans-serif; color: #ffffff; font-size: 8pt; letter-spacing: 2px; font-weight: bold;}
+span.header3	{ font-family: arial,helvetica,sans-serif; color: #ffffff; font-size: 10pt; letter-spacing: 2px; font-weight: bold;}
+
+DIV.tooltip		{ font-family: arial,helvetica,sans-serif; position: absolute; left: 10px; visibility: hidden; background-color: blue; border-style: solid; border-color: #da4b1e; border-width: 5px; border-left-width: 3px; border-right-width: 9px; width: 197px}
+TD.tooltip		{ color: #f5e9b7; font-size: 8pt; font-weight: normal; font-style: normal; }
+img.border		{ border-style: solid; border-color: #41220F; }
+
+a:link			{ font-family: arial,helvetica,sans-serif; color: #da4b1e; font-weight: bold; }
+a:visited 		{ font-family: arial,helvetica,sans-serif; color: #aaaaaa; font-weight: bold; }
+a:hover			{ font-family: arial,helvetica,sans-serif; color: #ffffff; font-weight: bold; }
+a:active 		{ font-family: arial,helvetica,sans-serif; color: #ffffff; font-weight: bold; }
+
+a.tiny:link		{ font-family: arial,helvetica,sans-serif; color: #da4b1e; font-weight: bold; font-size: 8pt; }
+a.tiny:visited	{ font-family: arial,helvetica,sans-serif; color: #aaaaaa; font-weight: bold; font-size: 8pt; }
+a.tiny:hover	{ font-family: arial,helvetica,sans-serif; color: #ffffff; font-weight: bold; font-size: 8pt; }
+a.tiny:active	{ font-family: arial,helvetica,sans-serif; color: #ffffff; font-weight: bold; font-size: 8pt; }
+

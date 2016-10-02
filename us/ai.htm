@@ -1,0 +1,127 @@
+<html>
+<head>
+   <meta name="Author" content="Clemens Lode">
+   <meta name="keywords" content="programming, links, game, c++, fantasy, art, artificial, intelligence, life, ai, al, job, music, demo, wars, claw software, strategy">
+   <title>A.I. - clawsoftware.de</title>
+<link rel="stylesheet" type="text/css" href="../includes/claw.css">
+<script language="JavaScript" src="../includes/menu.js"></script>
+</head>
+
+<body text="#000000" bgcolor="#FAFAFA" link="#BB0000" vlink="#770000" alink="#FF0000">
+<table BORDER=0 CELLPADDING=2 WIDTH="100%" >
+<tr>
+<td ALIGN=LEFT VALIGN=TOP WIDTH="165"><img SRC="../images/claw1.gif" NOSAVE height=74 width=129>
+<br><a href="index.htm" Onmouseover="RollOver('home'); return true" Onmouseout="RollOver('home'); return true"><img SRC="../images/offhome.gif" NAME="home" ALT="Home - News" NOSAVE BORDER=0 ></a>
+<br><a href="theteam.htm" Onmouseover="RollOver('theteam'); return true" Onmouseout="RollOver('theteam'); return true"><img SRC="../images/offteam.gif" NAME="theteam" ALT="Informations about us" NOSAVE BORDER=0 ></a>
+<br><a href="project.htm" Onmouseover="RollOver('project'); return true" Onmouseout="RollOver('project'); return true"><img SRC="../images/offproj.gif" NAME="project" ALT="Ongoing Project" NOSAVE BORDER=0 ></a>
+<br><a href="ai.htm" Onmouseover="RollOver('ai'); return true" Onmouseout="RollOver('ai'); return true"><img SRC="../images/offai.gif" NAME="ai" ALT="Artificial Life and Intelligence" NOSAVE BORDER=0></a>
+<br><a href="download.htm" Onmouseover="RollOver('download'); return true" Onmouseout="RollOver('download'); return true"><img SRC="../images/offdown.gif" NAME="download" ALT="Downloads" NOSAVE BORDER=0 ></a>
+<br><a href="think.htm" Onmouseover="RollOver('think'); return true" Onmouseout="RollOver('think'); return true"><img SRC="../images/offthink.gif" NAME="think" ALT="Think about it." NOSAVE BORDER=0></a>
+<br><a href="starcraft.htm" Onmouseover="RollOver('starcraft'); return true" Onmouseout="RollOver('starcraft'); return true"><img SRC="../images/offstar.gif" NAME="starcraft" ALT="StarCraft - some nice stuff about my favourite game" NOSAVE BORDER=0></a>
+<br><a href="links.htm" Onmouseover="RollOver('links'); return true" Onmouseout="RollOver('links'); return true"><img SRC="../images/offlinks.gif" NAME="links" ALT="Links - Go where Claw has gone before" NOSAVE BORDER=0 ></a></td>
+
+<td ALIGN=LEFT VALIGN=TOP><font face="Arial,Helvetica"><font size=+3>Artificial Intelligence</font>
+<br><img SRC="../images/line.gif" NOSAVE height=10 width=504>
+<p>
+<font face="Times New Roman">
+<BR>
+<font size=+2><B>AI Part I<BR></B></font>
+<BR>
+<B>A little calculation concerning Build Orders and their search space:<BR></B>
+<BR>
+Computers are stupid. Let's think of the worst case, a brute force method to create a perfect build order:<BR>
+First the facts:<BR>
+There are about 60 items (units/buildings/upgrades) to build in Starcraft per race.<BR>
+There are no turns or something like that, the computer should look every second what to do, so that the build order wastes no time.<BR>
+You are without interference of your enemy in the best case for say (very) roughly 10 minutes (on an air map, or you could try to build a wallin etc.).<BR>
+<BR>
+All in all, you have to choose between 60 possibilities in each of the 600 seconds.<BR>
+=> 60^600 = (roughly :P) 100^500 = a ten with 1000 x "0"s different build orders.<BR>
+Ok, let's say we could optimize the program so that we can calculate the time of each build order in one tick.<BR> 
+(well I would say about 10k ticks per build order, but that doesn't matter ;-)) <BR>
+A modern computer is able to calculate about 2 GhZ = 2.000.000.000 ticks/second...<BR>
+Well not fast enough :) That would )some( years to calculate ;-) Sun will switch off before ;-).<BR>
+Ok, ok, the searchspace (the "60^600") is too big.<BR>
+Computers are stupid? Let's make them intelligent ! ;-)<BR>
+At first: You won't need to try to build battle cruiser if you want marines, or Nukes if you want medics...<BR>
+Remaining about ~10 of the 60 possibilities in a normal BO.<BR>
+In addition you could wait until a certain event before you try to build something (i.e. try every 50 minerals or try when a building is ready).<BR>
+Remaining about ~50 steps of the 600 seconds.<BR>
+10^60, a 10 with 50 "0"s.<BR>
+Looks much better than the 1000 "0"s but the searchspace is still to big... (remember, 9 Zeros does a GhZ processor!)<BR>
+<B>:(</B><BR>
+We can't reduce the steps any more, nor the possibilites per step...<BR>
+<BR>
+Well... How does that StarCraft Calculator function???<BR>
+Yes, it has an internet connection to me and I am typing the build orders ;-)<BR>
+Preprogrammed build orders?<BR>
+No. Genetic Algorithms :)<BR>
+Well, I'll talk about that in "AI Part II" :)<BR>
+<BR>
+<BR>
+Oh yes, here it comes:<BR>
+<font size=+2><B>AI Part II<BR></B></font>
+<BR>
+I wasn't completely right in the part I...<BR>
+Well, let's start at the beginning, the birth of an idea... blabla...<BR>
+ok :) back to the interesting technical details.<BR>
+Actually I made about 5 versions of the calculator.<BR>
+The first version used genetic algorithms. Well, roughly said, I have 100 randomized build orders, I calculate their fitness, how near they come to the pre-set goals and choose the best ones. These lucky programs may ... well 'digitally copulate' with other programs to merge their genetic information, i.e. their build order.<BR>
+All in all, over time, the best build order will spread throughout the whole gen-pool until everyone got the 'good' genes. Due mutations the build orders always change a bit. Either they die out or they found through that mutation a better way of reaching the pre-set goals. Again their genetic information spread through the gen-pool etc. etc.<BR>
+In addition to the mutations, there is something called 'crossing-over' (originally from biology, you might heard that in school).
+Well, roughly said, the individuals exchange parts of their build orders. 
+But here you can see some problems of the algorithm:<BR>
+- You don't know whether you are ready and you don't know whether you found the best solution.<BR>
+Well, that is risk we have to take if we don't want to sit here until the sun burns out...<BR>
+- Using crossing over tends to build orders where important parts are merged together. This might cause the build order not to be optimal.<BR> 
+That sounds irritating, but let me explain:<BR>
+In each crossing over step some parts are cut out from the build order and are replaced by others.
+If important (i.e. good functioning) parts are cut just in their middle they are useless, if they stay complete they work.<BR>
+So, if the information is merged together there is a higher probability to survive the crossing over and so spread through the gene pool.<BR>
+Ok, the next step I took, was to fine tune everything, added additional mutation factors etc. but to make it short:
+The ability of the program to create build orders was really weak.<BR>
+Yeah, I remember how happy I was when it completed the goal to build 5 drones :).<BR>
+Well, that was the point I really hated the program, I wanted to give up.<BR>
+But hey, I bought a book (actually 2 years ago, I just rediscovered it on my desk ;-)).<BR>
+It is a kinda weird book about applying Artificial Neural Networks (ANNs) in industry applications...<BR>
+It concentrates more on the project management than on the technical details...<BR>
+Only some poor examples were put in there. All in all, the authors really want me to study computer science before they surprise me with their secret knowledge ;-).<BR>
+Ok, back to the roots:<BR>
+I didn't really understand how ANNs learn at first place.<BR> 
+Well, actually noone can't learn easily how to make good build orders.<BR>
+If you just watch yourself in a game, you often have 2-3 basic rules like "Always build workers", "Get some units at the beginning", "Stop making drones the minute before the spire is ready", etc. etc.<BR>
+But these are no build orders, these are just rules.<BR>
+Mmmh... How does learning functions in general? You get something like a reward if one of your rules is working.<BR>
+As we were newbies we all built not many workers. We used some kind of logic: "Workers cost money" and "I want money", so we tried not to build too many of them.<BR>
+But trying someone else's strategy to always build workers we suddenly recognized that we have more Zealots standing around than before! In addition, when we make an expansion, we can tranfer some workers to the new base and can immediately start harvesting.<BR>
+=> "Always build workers" is a good rule!<BR>
+But back to the problem:<BR>
+Let's assume you just learn build orders. You play them step for step and... loose :|<BR>
+But what are we learning of this? Either a rule "build order xyz is bad" or ... well... nothing ^^<BR>
+We can't optimize the build order, since we only know that it didn't function. We don't know exactly what part of the build order is wrong.<BR>
+So, all in all, the ANN approach was doomed to failure from the beginning...<BR>
+Looking back I orignally used the 'learn a build order' approach and then adding elements so that the ANNs can learn rules...<BR>
+Well, I'll go into ANN's later, as soon as I have usable results.<BR>
+<BR>
+(as I wrote the first part of this text some weeks ago, I can't remember what steps 3-4 were, so ...)
+<BR>
+Ready for the final step? Here it comes:<BR>
+So... What now?
+
+ 
+
+
+ 
+
+<center>
+<p><font face="Arial, Geneva, Variable">&copy; 2002 <a href="mailto:claws@clawsoftware.de">ClawSoftware</a>.
+All Rights Reserved.
+<br><a href="../legal/legal.htm" target=legal>Legal notices and trademark attributes.</a></center></font>
+</td>
+</tr>
+</table>
+<!-- </noembed>
+<embed src="../sound/Turrican2.mid" hidden=true autostart=true> 
+<noembed>
+ --></body>
+</html>

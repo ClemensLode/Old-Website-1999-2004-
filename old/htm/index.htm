@@ -1,0 +1,275 @@
+<html>
+<head>
+   <meta name="Author" content="Clemens Lode">
+   <meta name="keywords" content="programming, game, c++, fantasy, artificial, intelligence, life, ai, al, music, demo, wars, vor, vor calculator, mahlstrom, claw software, strategy">
+   <meta name="description" content="Claw Software is programming on different projects concerning artificial intelligence/life.">
+   <title>Home - clawsoftware.de</title>
+
+<script Language="JavaScript">
+var CurrentStatus = 0;
+home_off = new Image(120,32);
+home_off.src = "../images/offhome.gif";
+home_on = new Image(120,32);
+home_on.src = "../images/onhome.gif";
+theteam_off = new Image(120,32);
+theteam_off.src = "../images/offteam.gif";
+theteam_on = new Image(120,32);
+theteam_on.src = "../images/onteam.gif";
+project_off = new Image(120,32);
+project_off.src = "../images/offproj.gif";
+project_on = new Image(120,32);
+project_on.src = "../images/onproj.gif";
+ai_off = new Image(120,32);
+ai_off.src = "../images/offai.gif";
+ai_on = new Image(120,32);
+ai_on.src = "../images/onai.gif";
+download_off = new Image(120,32);
+download_off.src = "../images/offdown.gif";
+download_on = new Image(120,32);
+download_on.src = "../images/ondown.gif";
+think_off = new Image(120,32);
+think_off.src = "../images/offthink.gif";
+think_on = new Image(120,32);
+think_on.src = "../images/onthink.gif";
+starcraft_off = new Image(120,32);
+starcraft_off.src = "../images/offstar.gif";
+starcraft_on = new Image(120,32);
+starcraft_on.src = "../images/onstar.gif";
+links_off = new Image(120,32);
+links_off.src = "../images/offlinks.gif";
+links_on = new Image(120,32);
+links_on.src = "../images/onlinks.gif";
+function RollOver(button){
+var donewithit = false;
+if ((!donewithit)&&(CurrentStatus == 0)){
+ eval("document."+button+".src = "+button+"_on.src");
+ donewithit = true;
+ CurrentStatus = 1};
+if ((!donewithit)&&(CurrentStatus == 1)){
+ eval("document."+button+".src = "+button+"_off.src");
+ donewithit = true;
+ CurrentStatus = 0};
+};
+</script>
+</head>
+<body text="#000000" bgcolor="#FAFAFA" link="#BB0000" vlink="#770000" alink="#FF0000">
+<table BORDER=0 CELLPADDING=2 WIDTH="100%" >
+<tr>
+<td ALIGN=LEFT VALIGN=TOP WIDTH="165"><img SRC="../images/claw1.gif" NOSAVE height=74 width=129>
+<br><a href="index.htm" Onmouseover="RollOver('home'); return true" Onmouseout="RollOver('home'); return true"><img SRC="../images/offhome.gif" NAME="home" ALT="Home - News" NOSAVE BORDER=0 ></a>
+<br><a href="theteam.htm" Onmouseover="RollOver('theteam'); return true" Onmouseout="RollOver('theteam'); return true"><img SRC="../images/offteam.gif" NAME="theteam" ALT="Informations about us" NOSAVE BORDER=0 ></a>
+<br><a href="project.htm" Onmouseover="RollOver('project'); return true" Onmouseout="RollOver('project'); return true"><img SRC="../images/offproj.gif" NAME="project" ALT="Ongoing Project" NOSAVE BORDER=0 ></a>
+<br><a href="ai.htm" Onmouseover="RollOver('ai'); return true" Onmouseout="RollOver('ai'); return true"><img SRC="../images/offai.gif" NAME="ai" ALT="Artificial Life and Intelligence" NOSAVE BORDER=0></a>
+<br><a href="download.htm" Onmouseover="RollOver('download'); return true" Onmouseout="RollOver('download'); return true"><img SRC="../images/offdown.gif" NAME="download" ALT="Downloads" NOSAVE BORDER=0 ></a>
+<br><a href="think.htm" Onmouseover="RollOver('think'); return true" Onmouseout="RollOver('think'); return true"><img SRC="../images/offthink.gif" NAME="think" ALT="Think about it." NOSAVE BORDER=0></a>
+<br><a href="starcraft.htm" Onmouseover="RollOver('starcraft'); return true" Onmouseout="RollOver('starcraft'); return true"><img SRC="../images/offstar.gif" NAME="starcraft" ALT="StarCraft - some nice stuff about my favourite game" NOSAVE BORDER=0></a>
+<br><a href="links.htm" Onmouseover="RollOver('links'); return true" Onmouseout="RollOver('links'); return true"><img SRC="../images/offlinks.gif" NAME="links" ALT="Links - Go where Claw has gone before" NOSAVE BORDER=0 ></a></td>
+
+<td ALIGN=LEFT VALIGN=TOP>
+<center><img SRC="../images/claw2.gif" ALT="Main page" NOSAVE height=126 width=212></center>
+
+<p><font face="Arial,Helvetica"><font size=+3>Welcome To ClawSoftware (-:</font>
+<br><img SRC="../images/line.gif" NOSAVE height=10 width=504>
+<font face="Times New Roman">
+<BR>
+<BR>
+<BR><B>12.Update, 4/2/02</B><BR><BR>
+Yeah, I know, I'm kinda late with this update...<BR>
+Didn't find much time last week to program.<BR>
+Unfortunately v1.02 is not yet ready (should be until sunday).<BR>
+I had to completely rewrite some parts of the code but as I tested it the first time after 3 days of programming I was very surprised that it function though I made lots of changes without actually testing the program...<BR>
+<BR>
+See what I have already Implemented:<BR>
+<BR>
+- Location for units/buildings, Time for units/buildings *under construction*
+- Protoss Pylon now give you (as in the game :P) 8 instead of previous 7 Supply<BR>
+- Protoss Nexus now give you (as in the game :P) 9 instead of previous 10 Supply<BR>
+Well... I'm no protoss player, so I didn't noticed it ;)<BR>
+This may explain some unorthodox bos :B<BR>
+- Fixed the 'bug' that the program can't build multiple things at a time<BR>
+(especially important for zerg, you can build now for example 3 zerglings immediately instead of
+every second just one...)<BR>
+- Added a delay for drones who come out of canceled buildings<BR> 
+(the usual 3 seconds to return to the minerals)<BR>
+- Speed and significant less memory usage :B<BR>
+- Increased the maximum of buildings to 100 (=> goals to 50) <BR>
+- Killed a bug that allows the program to output a nonsense build order when no solution is found <BR>
+(i.e. all 5 solutions needed 'Max Time' or more minutes, the task was 
+too difficult, too complex or impossible like having as goal 2 
+extractors when there is only one geysir)<BR>
+- added a help screen for such cases<BR>
+- corrected the bug that would display "9:3", "10:9" etc. as times instead of "9:03" and "10:09"<BR>
+- made the output file a lot better viewable and added some extra information, like how many minerals/supply etc. you (should) have in that moment<BR> 
+<BR>
+I also completely rewrote the main part of the program.<BR>
+It is now completely based on a hill climbing algorithm, see about this in the AI section.<BR>
+This decreases the memory usage and increases speed. But all in all I think the new features will slow the program down so you won't see any speed differences between 1.01 and 1.02...<BR>
+In addition I left the calculation screen completely blank...<BR>
+Tell me if I'm wrong but I think this confuses most people who are no computer scientist.<BR>
+Perhaps I make an option in the config file...<BR>
+<BR>
+As soon as I completed the time and location thing I will publish version 1.02.<BR>
+<BR>
+<BR>
+<BR>
+<BR><B>11.Update, 3/24/02</B><BR>
+<BR>
+Mmmh... disturbing news, probably I found a bug in starcraft in the mineral gathering.<BR>
+I just discovered this an hour ago and I don't know what I should think about it, yet.<BR>
+Well, look yourself, I write a little article about it <a href="mineral.htm" target=mineral>here</a>.<BR>
+I put up a new thread in the broodwar.com general forum to discuss it.<BR>
+<BR>
+<BR>
+<BR><B>10.Update, 3/23/02</B><BR>
+<BR>
+Holidays :)<BR>
+I started to program on version 1.02 but I think this will need some more time than I planned...<BR>
+Especially wallin/distance to the enemy/front buildings  etc. are really difficult to implement.<BR>
+I am working now on some algorithms that allow you to set up the position of the buildings (i.e. the distance to your main).<BR>
+But I am already thinking of the results... The computer will then CERTAINLY calculate a build order that builds warp gates/barracks/hatcheries just in the base of the enemy to shorten the way to the enemy...<BR>
+I have something like a 'defense factor' in mind, so that you can set up how much defense you want at the border (where the production buildings are standing).<BR>
+Well, you see I'm in another brainstorming phase.<BR>
+The only good news in the moment is that I implemented the scout drone/scv/probe now and this is working.<BR>
+<BR>
+<BR>
+<BR><B>9.Update, 3/15/02</B><BR>
+<BR>
+Finally I found a good mirror for the file, no more slow megspace.com...
+<BR>
+Thanks to Bishop from www.i-pac.de :)
+<BR>
+<BR>
+<BR>
+<B>8. Update, 3/15/02</B><BR>
+<BR>
+Ahh... StarCraft Calculator Version 1.01 is ready to download :)<BR>
+If you are still unsure whether to download it or not, no problem, read the <A HREF=readme.txt target=readme>readme.txt</A><BR>
+and decide yourself whether it's worth a download or not.<BR>
+Oh, well, just click on downloads and get the file.<BR>
+Have fun!<BR>
+<BR>
+<BR>
+<B>7. Update, 3/12/02</B><BR>
+<BR>
+Oh... There were )some( bugs in the program ;-)<BR>
+Well, Hydralisks didn't cost any gas (that's why the hydra drop is so fast *g*)<BR>
+Oh and some other minor things...<BR>
+Well, Weekend awaits :)<BR>
+The actual version is much faster now and I added an algorithm that calculates the speed of the unit into the build time (you want that dark templars in the enemy base not sitting at home, right?). 
+This will also improve the build orders concerning upgrades. You don't want your +1 weapon upgrade when you start running to the enemy but when you are in front of his base!<BR>
+<BR>  
+<BR>
+<B>6. Update, 3/11/02</B><BR>
+<BR>
+I talked with some people who downloaded the program and I think I know now how the next version will look like.<BR>
+Well, I first had to come over some technical difficulties (combining all 3 exe files in one, sounds easy, well... it is if you know the "virtual" instruction ;-)) and I speeded up the program a lot. 
+Unfortunately there are now not much more to optimize (well, it IS NOT a trivial problem finding a good build order)<BR>
+<B>In the AI Section I made a little calculation concerning the speed, well, look yourself if you are a little interested how SCC functions :P<BR></B>
+Oh, yes and I updated the readme file, added some more user friendlyness and some routines which should make it much easier now to type in your goals...
+(you just have to enter the units you want, no longer the buildings, of course you are still able to enter buildings as goals though it is no longer neccessary to reach the goal, well, see yourself :P)<BR>
+The version in the moment is still too buggy to release it, so wait until weekend :)<BR>
+V1.01 awaits you then ;-)<BR>
+<BR>
+<BR>
+<B>5. Update, 3/10/02</B><BR>
+<BR>
+Wow... ;)<BR>
+If I only used a better zip program...<BR>
+Friday and Saturday over 1400 downloads of the program...<BR>
+I have to move now to another server as the bandwidth limit is reached soon.<BR>
+Oh, well the next version comes out approx. in a week.<BR>
+<BR>
+<BR>
+<B>Fourth Update, 3/8/02</B><BR>
+<BR>
+Ahh... Finally :)<BR>
+<B>The first Release of the StarCraft Calculators.<BR></B>
+I just call them SC Evolution Chamber, SC Science Facility and SC Templar Archives.<BR>
+Guess what races I implemented ;-).<BR>
+Oh well, decide yourself whether this tool is useful or not.<BR>
+You will find the files and the 2 screenshots I made in the download section.<BR>
+HF, GL :)<BR>
+<BR>
+11:03PM: I fixed a little bug (yeah, they are everywhere ;-)) caused the protoss 
+version using "goal_prot.txt" instead of "goal_p.txt"... Well, it runs now :)<BR>
+I got first positive feedback from a visitor of broodwar.com, "...A solid piece of programming...", thnx :)<BR> 
+<BR>
+<BR>
+<B>Third Update, 3/2/02</B><BR>
+<BR>
+Oh, yes, the Neural Network project was very nice :) Though, comparing to the old approach (just a straight line of a linear build order) it didn't work quite well.<BR>
+Now it's time to add a "user-friendly" interface (good that it's the only calculator availible, so there are not many competetors around ;)) and the other 2 races.<BR>
+All in all the new version works fine, it only has some problems with Sunken and Spore Colonies.<BR>
+The only other problem I have is the name... I researched the web and found a "Starcraft Build Calculator"... Well, perhaps something like SCEC-StarCraftEvolutionChamber.<BR> 
+And now a little Goodie for all you SC-Players:<BR>
+20 Hydra Drop, Speed/Range upgrade in around 10-11 minutes (Speed 5) calculated by the Calculator :P<BR>
+-9 Overlord<BR>
+-11 Extractor<BR>
+-10 Spawning Pool<BR>
+2 additional Drones<BR>
+2 Drones -> gathering gas<BR>
+1 additional Drone<BR>
+1 Drone -> gathering gas<BR>
+1 additional Drone<BR>
+1 Hydralisk Den (14 Drones in that moment)<BR>
+2 Overlords<BR>
+9 Hydralisks<BR>
+Upgrade Grooved Spines<BR>
+Upgrade to Lair<BR>
+4 Hydralisks<BR>
+Upgrade Ventral Sacks<BR>
+1 Hydralisk<BR>
+Upgrade Pneumaticed Carapace<BR>
+1 Hydralisk<BR>
+Upgrade Muscular Augments<BR>
+4 Hydralisks<BR>
+1 Overlord<BR>
+1 Hydralisk<BR>
+Go Go Go :P<BR>
+<BR>
+I do not think that there are a much better way to get that fast these upgrades... <BR> 
+Of course, you shouldn't use that on LT :P<BR>
+I also would propose some spore colonies against early air attacks...<BR>
+<BR>
+Update (4/2/02): Well... forget the hydralisk build order... the version had the bug with hydralisks that cost 75minerals and 0 gas... :D<BR>
+<BR>
+<BR>
+<B>Second Update, 2/11/02</B><BR>
+<BR>
+Well :B<BR>
+"zerg version is ready in about 1 or 2 weeks"... but after exchanged some ideas with the creator of "Stratagema", I decided to implement an evolving neural network would be much better, as it is a more generalized solution. I.e. you can apply the calculated network to more than just one problem...<BR>
+Well, it *runs* but is in the moment way to slow and stuck too often in local minima...<BR>    
+<br>
+
+
+
+<BR>
+<B>First Update, 12/30/01</B><BR>
+<BR>
+Well, I decided to restart the StarCraft Calculator project. The program is complete (except some major bugs I have to kill ;-) In addition it needs some more fine-tuning before I can present it here...) :)
+It is only for Zerg build orders but I will type in the Terra and Protoss unit, building and upgrade stats soon.
+I think the zerg version is ready in about 1 or 2 weeks (I "have to" spend my time to my new flatrate, a session and some other "more" important things ;-) ).<BR>   
+<BR>
+Oh and I updated the VOR Calculator. I uploaded the much slower debug-version instead of the fast release version.
+(and I added Windows-support if you want to call it that way, it won't close immediately after the calculation is complete...)<BR>   
+<BR>
+I also noticed that the homepage need some more design, especially those midis and some new graphics.
+Well... first things first, programming is more important ;-).<BR>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<center>
+<p><font face="Arial, Geneva, Variable">&copy; 2002 <a href="mailto:claws@clawsoftware.de">ClawSoftware</a>.
+All Rights Reserved.
+<br><a href="..\legal\legal.htm" target=legal>Legal notices and trademark attributes.</a></font></center>
+</td>
+</tr>
+</table>
+<!-- </noembed>
+<embed src="../sound/music027.mid" hidden=true autostart=true>
+<noembed>
+ --></body>
+</html>
